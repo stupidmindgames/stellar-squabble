@@ -1,0 +1,32 @@
+{
+  "name": "stellar-squabble",
+  "version": "0.1",
+  "description": "A modern browser-based remake of EGA Trek",
+  "main": "index.js",
+  "repository": "https://github.com/stupidmindgames/stellar-squabble.git",
+  "author": "Stupid Mind Games <info@stupidmindgames.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "react": "^16.8.3",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
