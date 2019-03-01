@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './scss/style.scss';
 import {Container, Row, Col} from 'react-bootstrap';
 
 class App extends Component {
