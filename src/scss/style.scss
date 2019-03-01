@@ -8,18 +8,58 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  .container {
-    background-color: #fff;
+  .container.container__game {
     max-width: 1024px;
+    margin: 0 auto;
+    color: #fff;
 
     .unit {
       position: relative;
       height: 256px;
-    }
+      padding: 0;
 
-    .unit-double {
-      position: relative;
-      height: 512px;
+      p {
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+      .unit__inner {
+        width: 250px;
+        height: 250px;
+        margin: 3px 3px;
+        padding: 4px;
+        border: 1px solid #fff; 
+      }
+
+      &.unit--tall {
+        position: relative;
+        height: 506px;
+
+        >.unit__inner {
+          height: 506px;
+        }
+      }
+
+      &.unit--double {
+        >.unit__inner {
+          width: 506px;
+        }
+      }
+
+      &.unit--badge {
+        text-align: center;
+
+        img {
+          display: block;
+          width: 128px;
+          height: 128px;
+          margin: 12px auto;
+        }
+      }
+
+      .row {
+        margin: 0;
+      }
     }
   }
 }

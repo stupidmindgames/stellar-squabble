@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
 
-class Sector extends Component { 
+class Status extends Component { 
   render() {
-    return (<Col className="unit" xs="12" md="6" lg="3">Sector</Col>);
+    return (
+        <Col className="unit unit--status" xs="12" md="6"lg="3">
+            <div className="unit__inner">
+                <p>Status</p>
+            </div>
+        </Col>
+    );
   }
 }
 
-export default Sector;
+export default Status;

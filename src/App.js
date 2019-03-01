@@ -13,19 +13,19 @@ import Badge from './panels/Badge.js';
 class App extends Component {
   render() {
     return (
-      <Container>
+      <Container className="no-gutters container__game">
         <Row>
+          <Galaxy />
+
           <Status />
 
-          <Sector />
-          
-          <Galaxy />
+          <Sector />          
         </Row>
         
         <Row>
           <Messages />
 
-          <Col className="unit unit-double" xs="12" md="12" lg="6">
+          <Col className="unit unit--tall" xs="12" md="12" lg="6">
             <Row>
               <Viewer />
           
