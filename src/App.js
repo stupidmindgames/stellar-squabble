@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
 import './scss/style.scss';
 import {Container, Row, Col} from 'react-bootstrap';
+import Status from './panels/Status.js';
+import Sector from './panels/Sector.js';
+import Galaxy from './panels/Galaxy.js';
+import Messages from './panels/Messages.js';
+import Viewer from './panels/Viewer.js';
+import Commands from './panels/Commands.js';
+import Systems from './panels/Systems.js';
+import Badge from './panels/Badge.js';
 
 class App extends Component {
   render() {
     return (
       <Container>
         <Row>
-          <Col className="unit" xs="12" md="6" lg="3">Status</Col>
-          <Col className="unit" xs="12" md="6" lg="3">Sector</Col>
-          <Col className="unit" xs="12" md="12" lg="6">Galaxy</Col>
+          <Status />
+
+          <Sector />
+          
+          <Galaxy />
         </Row>
+        
         <Row>
-          <Col className="unit unit-double" xs="12" md="12" lg="6">Messages</Col>
+          <Messages />
+
           <Col className="unit unit-double" xs="12" md="12" lg="6">
             <Row>
-              <Col className="unit" xs="12" lg="6">Viewer</Col>
-              <Col className="unit" xs="12" lg="6">Commands</Col>
+              <Viewer />
+          
+              <Commands />
             </Row>
 
             <Row>
-              <Col className="unit" xs="12" lg="6">Systems</Col>
-              <Col className="unit" xs="12" lg="6">Badge</Col>
+              <Systems />
+          
+              <Badge />
             </Row>
           </Col>
         </Row>
