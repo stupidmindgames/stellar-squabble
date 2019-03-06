@@ -6,7 +6,7 @@ class Badge extends Component {
     return (
         <Col className="unit unit--badge" xs="12" lg="6">
             <div className="unit__inner">
-                <p>USS Lexington</p>
+                <h2>USS Lexington</h2>
                 <p>RCB-92</p>
 
                 <img src="img/badge.png" className="img__badge" alt="USS Lexington badge" />
