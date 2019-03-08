@@ -5,7 +5,11 @@ class Commands extends Component {
   render() {
     return (
         <Col className="unit unit--commands" xs="12" lg="6">
-            <div className="unit__inner">
+            <div className="unit__inner unit__inner--short">
+                <p>Lasers</p>
+            </div>
+
+            <div className="unit__inner unit__inner--short">
                 <p>Commands</p>
             </div>
         </Col>
