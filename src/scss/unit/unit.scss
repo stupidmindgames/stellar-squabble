@@ -15,6 +15,17 @@
     text-transform: uppercase;
   }
 
+  table {
+    width: 90%;
+    margin: 0 auto;
+
+    tr {
+      td {
+        font-size: 12px;
+      }
+    }
+  }
+
   .unit__inner {
     width: 250px;
     height: 250px;
@@ -47,32 +58,11 @@
     }
   }
 
-  &.unit--badge {
-    text-align: center;
+  @import 'badge';
 
-    img {
-      display: block;
-      width: 128px;
-      height: 128px;
-      margin: 12px auto;
-    }
-  }
+  @import 'systems';
 
-  &.unit--systems {
-    text-align: center;
-
-    table {
-      width: 90%;
-      margin: 0 auto;
-
-      tr {
-        td {
-          text-align: left;
-          font-size: 12px;
-        }
-      }
-    }
-  }
+  @import 'commands';
 
   .row {
     margin: 0;
