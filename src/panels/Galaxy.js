@@ -6,7 +6,7 @@ class Galaxy extends Component {
     return (
     	<Col className="unit unit--double unit--galaxy" xs="12" md="12" lg="6">
             <div className="unit__inner">
-                <p>Galaxy</p>
+                <h2>Galaxy</h2>
             </div>
     	</Col>
     );

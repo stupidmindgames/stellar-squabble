@@ -6,7 +6,7 @@ class Sector extends Component {
     return (
         <Col className="unit unit--sector" xs="12" md="6"lg="3">
             <div className="unit__inner">
-                <p>Sector</p>
+                <h2>Sector</h2>
             </div>
         </Col>
     );

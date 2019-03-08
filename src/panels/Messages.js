@@ -6,7 +6,7 @@ class Messages extends Component {
     return (
     	<Col className="unit unit--double unit--tall unit--messages" xs="12" md="12" lg="6">
             <div className="unit__inner">
-                <p>Messages</p>
+                <h2>Messages</h2>
             </div>
     	</Col>
     );

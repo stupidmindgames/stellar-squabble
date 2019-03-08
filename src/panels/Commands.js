@@ -6,11 +6,11 @@ class Commands extends Component {
     return (
         <Col className="unit unit--commands" xs="12" lg="6">
             <div className="unit__inner unit__inner--short">
-                <p>Lasers</p>
+                <h2>Lasers</h2>
             </div>
 
             <div className="unit__inner unit__inner--short">
-                <p>Commands</p>
+                <h2>Commands</h2>
             </div>
         </Col>
     );

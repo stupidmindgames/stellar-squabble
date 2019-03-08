@@ -6,7 +6,7 @@ class Status extends Component {
     return (
         <Col className="unit unit--status" xs="12" md="6"lg="3">
             <div className="unit__inner">
-                <p>Status</p>
+                <h2>Status</h2>
             </div>
         </Col>
     );

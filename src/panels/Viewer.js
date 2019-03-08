@@ -6,7 +6,7 @@ class Viewer extends Component {
     return (
         <Col className="unit unit--viewer" xs="12" lg="6">
             <div className="unit__inner">
-                <p>Viewer</p>
+                <h2>Viewer</h2>
             </div>
         </Col>
     );
