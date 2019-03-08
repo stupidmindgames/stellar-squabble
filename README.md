@@ -6,7 +6,6 @@ For more information about this seminal DOS game of yesteryear, see https://arch
 
 ## TODO ##
 
- * Lasers
  * Commands
  * Sector
  * Galaxy
