@@ -10,15 +10,17 @@ class Commands extends Component {
                 <h2>Lasers</h2>
 
                 <table>
-                    <tr>
-                        <td>Eff.</td>
-                        <td>100%</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>Eff.</td>
+                            <td>100%</td>
+                        </tr>
 
-                    <tr>
-                        <td>Temp.</td>
-                        <td>0</td>
-                    </tr>
+                        <tr>
+                            <td>Temp.</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
