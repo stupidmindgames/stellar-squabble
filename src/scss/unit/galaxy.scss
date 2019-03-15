@@ -1,0 +1,46 @@
+&.unit--galaxy {
+	h2 {
+		text-transform: initial;
+	}
+
+	p {
+		text-align: center;
+	}
+
+	table.table__galaxy {
+		width: 480px;
+		margin: 0 16px 4px 0;
+		padding: 0;
+
+		tr {
+			td {
+				margin: 0;
+				padding: 0;
+				width: 48px;
+				height: 20px;
+				text-align: center;
+				font-weight: bold;
+
+				&.td__galaxyCoord {
+					color: $galaxyCoord;
+				}
+
+				&.td__galaxyCell {
+					color: $galaxyCell;
+
+					.span__galaxyCellStat {
+						display: inline-block;
+						width: 12px;
+					}
+				}
+			}
+
+			&.tr__galaxyheading {
+			}
+
+			&.tr__galaxycontent {
+				
+			}
+		}
+	}
+}
