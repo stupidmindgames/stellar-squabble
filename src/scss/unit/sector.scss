@@ -1,0 +1,33 @@
+&.unit--sector {
+	table.table__sector {
+		width: 216px;
+		margin: 12px;
+		padding: 0;
+
+		tr {
+			td {
+				margin: 0;
+				padding: 0;
+				width: 24px;
+				height: 24px;
+				text-align: center;
+				font-weight: bold;
+
+				&.td__sectorCoord {
+					color: $sectorCoord;
+				}
+
+				&.td__sectorCell {
+					color: $sectorCell;
+				}
+			}
+
+			&.tr__sectorheading {
+			}
+
+			&.tr__sectorcontent {
+				
+			}
+		}
+	}
+}

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
+@import 'colours';
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #001;
+  background-color: $bg-color;
   font-family: 'Inconsolata', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11,7 +13,7 @@ body {
   .container.container__game {
     max-width: 1024px;
     margin: 0 auto;
-    color: #fff;
+    color: $mainText;
 
     @import 'unit/unit';
   }
