@@ -15,6 +15,16 @@
     text-transform: uppercase;
   }
 
+  button {
+    background-color: $border;
+    color: $background;
+
+    &:hover {
+      background-color: $highlight;
+      color: $mainText;
+    }
+  }
+
   table {
     width: 90%;
     margin: 0 auto;

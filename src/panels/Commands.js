@@ -25,8 +25,6 @@ class Commands extends Component {
             </div>
 
             <div className="unit__inner unit__inner--short unit__inner--commands">
-                <h2>Commands</h2>
-
                  <Button variant="light" onClick={this.props.handleCommandPanelClick}>
                     Command Panel
                 </Button>
