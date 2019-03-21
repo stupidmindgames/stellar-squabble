@@ -1,5 +1,5 @@
 &.unit--messages {    
-    .div__message {
+    .block__message {
         position: relative;
         height: 112px;
         margin: 10px 8px;
@@ -31,26 +31,26 @@
             display: inline;
         }
 
-        &.div__message--damage,
-        &.div__message--damage span {
+        &.block__message--damage,
+        &.block__message--damage span {
             background-color: $bg-damage;
             color: $fg-damage;
         }
 
-        &.div__message--science,
-        &.div__message--science span {
+        &.block__message--science,
+        &.block__message--science span {
             background-color: $bg-science;
             color: $fg-science;
         }
 
-        &.div__message--communications,
-        &.div__message--communications span {
+        &.block__message--communications,
+        &.block__message--communications span {
             background-color: $bg-communications;
             color: $fg-communications;
         }
 
-        &.div__message--tactical,
-        &.div__message--tactical span {
+        &.block__message--tactical,
+        &.block__message--tactical span {
             background-color: $bg-tactical;
             color: $fg-tactical;
         }

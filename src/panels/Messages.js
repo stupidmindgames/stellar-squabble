@@ -31,7 +31,7 @@ class Messages extends Component {
     for(let messageData of messagesData) {
       if(messageData.dept && messageData.date && messageData.mesg) {
         messages.push(
-          <div className={'div__message div__message--' + messageData.dept.toLowerCase()}>
+          <div className={'block__message block__message--' + messageData.dept.toLowerCase()}>
             <span>{messageData.date}</span>
 
             <h2>{messageData.dept}</h2>

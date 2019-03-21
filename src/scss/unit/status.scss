@@ -1,5 +1,5 @@
 &.unit--status {
-    .div__statusPanel {
+    .block__statusPanel {
         float: left;
         width: 112px;
         padding: 8px;
@@ -11,28 +11,28 @@
             font-weight: bold;
         }
 
-        &.div__statusPanel--red {
+        &.block__statusPanel--red {
             background-color: $bg-alert;
             color: $fg-alert;
         }
 
-        &.div__statusPanel--alert {
+        &.block__statusPanel--alert {
             text-align: center;
         }
 
-        &.div__statusPanel--warp,
-        &.div__statusPanel--mongols {
+        &.block__statusPanel--warp,
+        &.block__statusPanel--mongols {
                 width: 132px;
         }
 
-        &.div__statusPanel--torps {
+        &.block__statusPanel--torps {
             padding: 0;
             width: 92px;
             height: 92px;
         }
     }
 
-    .div__gauge {
+    .block__gauge {
         float: left;
         width: 112px;
         height: 76px;
