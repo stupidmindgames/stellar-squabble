@@ -1,0 +1,58 @@
+&.unit--messages {    
+    .div__message {
+        position: relative;
+        height: 112px;
+        margin: 10px 8px;
+        padding: 4px;
+        background-color: $highlight;
+        border: 1px solid $border;
+
+        span {
+            position: absolute;
+            top: -6px;
+            right: 20px;
+            font-size: 12px;
+            line-height: 12px;
+            padding: 0 4px;
+            background-color: $highlight;
+            border-radius: 2px;
+        }
+
+        h2 {
+            display: inline;
+            text-transform: uppercase;
+
+            &:after {
+                content: ':  ';
+            }
+        }
+
+        p {
+            display: inline;
+        }
+
+        &.div__message--damage,
+        &.div__message--damage span {
+            background-color: $bg-damage;
+            color: $fg-damage;
+        }
+
+        &.div__message--science,
+        &.div__message--science span {
+            background-color: $bg-science;
+            color: $fg-science;
+        }
+
+        &.div__message--communications,
+        &.div__message--communications span {
+            background-color: $bg-communications;
+            color: $fg-communications;
+        }
+
+        &.div__message--tactical,
+        &.div__message--tactical span {
+            background-color: $bg-tactical;
+            color: $fg-tactical;
+        }
+    }
+}
