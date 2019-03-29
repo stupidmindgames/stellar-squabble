@@ -1,10 +1,15 @@
 &.unit--viewer {
+    .unit__inner {
+        background-color: $bg-unit;
+    }
+        
     .block__viewScreen {
         position: relative;
         width: 224px;
         height: 168px;
         margin: 0 auto;
         border: 1px solid $viewerBorder;
+        background-color: $background;
 
         .block__viewScreenLayer {
             position: absolute;

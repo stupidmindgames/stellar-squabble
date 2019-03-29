@@ -1,4 +1,8 @@
 &.unit--badge {
+  .unit__inner {
+    background-color: $bg-unit;
+  }
+
   p {
     text-align: center;
   }
