@@ -3,6 +3,9 @@ import {Col} from 'react-bootstrap';
 
 class Galaxy extends Component { 
   render() {
+    let {value} = this.props;
+    let {xxx} = value;
+
     let sector = '6', quad = '3';
 
     let galaxyCells = [];

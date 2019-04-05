@@ -3,15 +3,18 @@ import {Col} from 'react-bootstrap';
 
 class Badge extends Component { 
   render() {
+    let {value} = this.props;
+    let {shipName, shipReg, badge, dept} = value;
+    
     return (
         <Col className="unit unit--badge" xs="12" lg="6">
             <div className="unit__inner">
-                <h2>USS Lexington</h2>
-                <p>RCB-92</p>
+                <h2>{shipName}</h2>
+                <p>{shipReg}</p>
 
-                <img src="img/badge.png" className="img__badge" alt="USS Lexington badge" />
+                <img src={badge} className="img__badge" alt={shipName + ' badge'} />
 
-                <p>Dept. of Space</p>
+                <p>{dept}</p>
             </div>
         </Col>
         );

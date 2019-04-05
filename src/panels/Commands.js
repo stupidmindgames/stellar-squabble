@@ -5,6 +5,9 @@ import StatusBar from '../components/StatusBar';
 
 class Commands extends Component { 
   render() {
+    let {value} = this.props;
+    let {eff, temp} = value;
+
     return (
         <Col className="unit unit--commands" xs="12" lg="6">
             <div className="unit__inner unit__inner--short unit__inner--lasers">
@@ -14,12 +17,12 @@ class Commands extends Component {
                     <tbody>
                         <tr>
                             <td>Eff.</td>
-                            <td><StatusBar value={50} /></td>
+                            <td><StatusBar value={eff} /></td>
                         </tr>
 
                         <tr>
                             <td>Temp.</td>
-                            <td><StatusBar value={0} /></td>
+                            <td><StatusBar value={temp} /></td>
                         </tr>
                     </tbody>
                 </table>

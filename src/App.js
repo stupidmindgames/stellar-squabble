@@ -41,27 +41,77 @@ class App extends Component {
       <div>
         <Container className="no-gutters container__game">
           <Row>
-            <Galaxy />
+            <Galaxy
+              value={{
+              }}
+            />
 
-            <Status />
+            <Status
+              value={{
+                date: 3500.0,
+                status: 'alert',
+                statusColour: 'red',
+                statusText: (<span>&raquo;&raquo; Alert &laquo;&laquo;</span>),
+                energy: 80,
+                shields: 65,
+                torps: 9,
+                warp: 1.0,
+                mongols: 23,
+              }}
+            />
 
-            <Sector />          
+            <Sector
+              value={{
+              }}
+            />
           </Row>
           
           <Row>
-            <Messages />
+            <Messages
+              value={{
+              }}
+            />
 
             <Col className="unit unit--tall" xs="12" md="12" lg="6">
               <Row>
-                <Viewer />
+                <Viewer
+                  value={{
+                  }}
+                />
             
-                <Commands handleCommandPanelClick={this.handleCommandPanelClick} />
+                <Commands
+                  handleCommandPanelClick={this.handleCommandPanelClick} 
+                  value={{
+                    eff: 50,
+                    temp: 0,
+                  }}
+                />
               </Row>
 
               <Row>
-                <Systems />
+                <Systems
+                  value={{
+                    energy: 50,
+                    shields: 77,
+                    lifeSupport: 47,
+                    lasers: 89,
+                    torps: 12,
+                    warp: 34,
+                    impulse: 53,
+                    shortRange: 87,
+                    longRange: 100,
+                    computer: 39,
+                  }}
+                />
             
-                <Badge />
+                <Badge
+                  value={{
+                    shipName : 'USS Lexington',
+                    shipReg: 'RCB-92',
+                    badge: 'img/badge.png',
+                    dept: 'Dept. of Space',
+                  }}
+                />
               </Row>
             </Col>
           </Row>

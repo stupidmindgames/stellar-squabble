@@ -3,6 +3,9 @@ import {Col} from 'react-bootstrap';
 
 class Messages extends Component { 
   render() {
+    let {value} = this.props;
+    let {xxx} = value;
+
     let messagesData = [
       {
         dept: 'Science',

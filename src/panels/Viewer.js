@@ -3,6 +3,9 @@ import {Col} from 'react-bootstrap';
 
 class Viewer extends Component { 
   render() {
+    // let {value} = this.props;
+    // let {xxx} = value;
+
     return (
         <Col className="unit unit--viewer" xs="12" lg="6">
             <div className="unit__inner">
