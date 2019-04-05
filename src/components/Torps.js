@@ -6,7 +6,7 @@ class Torps extends Component {
         let torps = [];
 
         for(let i = 0; i < value; i++) {
-            torps.push(<span>*</span>);
+            torps.push(<span key={'torp_' + i}>*</span>);
         }
 
         return (

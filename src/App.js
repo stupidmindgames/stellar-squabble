@@ -37,12 +37,69 @@ class App extends Component {
   }
 
   render() {
+    let galaxy = [], sector= [];
+
+    for(let i = 0; i < 8; i++) {
+      let cells = [];
+
+      for(let j = 0; j < 8; j++) {
+        let cell = {
+          stars: 0,
+          mongs: 0,
+          bases: 0,
+        };
+
+        cells.push(cell);
+      }
+
+      galaxy.push(cells);
+    }
+
+    for(let i = 0; i < 8; i++) {
+      let cells = [];
+
+      for(let j = 0; j < 8; j++) {
+        let cell = '.';
+
+        cells.push(cell);
+      }
+
+      sector.push(cells);
+    }
+
+    let messagesData = [
+      {
+        dept: 'Science',
+        date: '3560.2',
+        mesg: 'Scanners show no enemy ships in this quadrant.',
+      },
+      {
+        dept: 'Damage',
+        date: '3564.1',
+        mesg: 'Energy Converter failing, now at 56%',
+      },
+      {
+        dept: 'Communications',
+        date: '3564.2',
+        mesg: 'The Starbase in 6-6 reports it is under attack. They can last until 3568.3.',
+      },
+      {
+        dept: 'Tactical',
+        date: '3565.6',
+        mesg: 'There are Mongols off the starboard bow, starboard bow, starboard bow',
+      },
+    ];
+
     return (
       <div>
         <Container className="no-gutters container__game">
           <Row>
             <Galaxy
               value={{
+                shipName : 'USS Lexington',
+                sector: 6,
+                quad: 3,
+                galaxy: galaxy,
               }}
             />
 
@@ -62,6 +119,7 @@ class App extends Component {
 
             <Sector
               value={{
+                sector: sector,
               }}
             />
           </Row>
@@ -69,6 +127,7 @@ class App extends Component {
           <Row>
             <Messages
               value={{
+                messagesData: messagesData,
               }}
             />
 

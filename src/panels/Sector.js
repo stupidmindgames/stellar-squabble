@@ -4,7 +4,7 @@ import {Col} from 'react-bootstrap';
 class Sector extends Component { 
   render() {
     let {value} = this.props;
-    let {xxx} = value;
+    let {sector} = value;
 
     let sectorCells = [];
 
@@ -24,7 +24,7 @@ class Sector extends Component {
         let cells = [];
 
         for(let j = 1; j <= 8; j++) {
-            cells.push(<td className="td__sectorCell" key={'sectorCell_' + j}>.</td>);
+            cells.push(<td className="td__sectorCell" key={'sectorCell_' + j}>{sector[i][j -1]}</td>);
         }
 
         sectorRows.push(
