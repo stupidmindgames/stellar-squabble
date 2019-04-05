@@ -4,27 +4,27 @@ import Button from 'react-bootstrap/Button';
 
 class CommandPanel extends Component {
     render() {
-        var {show, close} = this.props;
+        var {show, close, commands} = this.props;
+        let commandComponents = [];
+
+        for(let command in commands) {
+            commandComponents.push(
+                <li>
+                    <Button onClick={commands[command].action}>{commands[command].name}</Button>
+                </li>
+            );
+        }
 
         return (
-            <Modal size="lg" show={show} onHide={close}>
+            <Modal size="lg" className='modal__commands' show={show} onHide={close}>
                 <Modal.Header>
                     <Modal.Title>Command Panel</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                <ul>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                    <li>A list of commands</li>
-                </ul>
+                    <ul>
+                        {commandComponents}
+                    </ul>
                 </Modal.Body>
 
                 <Modal.Footer>

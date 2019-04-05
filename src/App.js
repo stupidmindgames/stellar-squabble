@@ -135,6 +135,21 @@ class App extends Component {
     }
   }
 
+  commands = {
+    moveSector: {
+      name: 'Move within galaxy',
+      action: () => {
+        alert('Move sector');
+      },
+    },
+    moveQuad: {
+      name: 'Move within sector ',
+      action: () => {
+        alert('Move quadrant');
+      },
+    },
+  }
+
   handleCommandPanelClick() {
     this.setState({
       commandPanelShow: true,
@@ -181,6 +196,7 @@ class App extends Component {
                 />
             
                 <Commands
+                  commands={this.commands}
                   handleCommandPanelClick={this.handleCommandPanelClick} 
                   value={commands}
                 />
@@ -199,7 +215,11 @@ class App extends Component {
           </Row>
         </Container>
 
-        <CommandPanel show={this.state.commandPanelShow} close={this.handleCommandPanelClose} />
+        <CommandPanel
+          commands={this.commands}
+          show={this.state.commandPanelShow}
+          close={this.handleCommandPanelClose}
+        />
       </div>
     );
   }
