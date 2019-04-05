@@ -11,6 +11,19 @@
     background-color: $bg-unit;
   }
 
+  .unit__inner--lasers {
+    table {
+      tr {
+        td:first-child {
+          width: 25%;
+        }
+        td:last-child {
+          width: 75%;
+        }
+      }
+    }
+  }
+
   .unit__inner--commands {
     text-align: center;
 

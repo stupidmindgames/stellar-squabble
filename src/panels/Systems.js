@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
+import StatusBar from '../components/StatusBar';
 
 class Systems extends Component { 
   render() {
@@ -12,43 +13,43 @@ class Systems extends Component {
                     <tbody>
                         <tr>
                             <td>Energy Converter</td>
-                            <td>100%</td>
+                            <td><StatusBar value={50} /></td>
                         </tr>
                         <tr>
                             <td>Shields</td>
-                            <td>100%</td>
+                            <td><StatusBar value={77} /></td>
                         </tr>
                         <tr>
                             <td>Life Support</td>
-                            <td>100%</td>
+                            <td><StatusBar value={47} /></td>
                         </tr>
                         <tr>
                             <td>Lasers</td>
-                            <td>100%</td>
+                            <td><StatusBar value={89} /></td>
                         </tr>
                         <tr>
                             <td>Torpedos</td>
-                            <td>100%</td>
+                            <td><StatusBar value={12} /></td>
                         </tr>
                         <tr>
                             <td>Warp Engines</td>
-                            <td>100%</td>
+                            <td><StatusBar value={34} /></td>
                         </tr>
                         <tr>
                             <td>Impulse Engines</td>
-                            <td>100%</td>
+                            <td><StatusBar value={53} /></td>
                         </tr>
                         <tr>
                             <td>Short Range Scanner</td>
-                            <td>100%</td>
+                            <td><StatusBar value={87} /></td>
                         </tr>
                         <tr>
                             <td>Long Range Scanner</td>
-                            <td>100%</td>
+                            <td><StatusBar value={100} /></td>
                         </tr>
                         <tr>
                             <td>Main Computer</td>
-                            <td>100%</td>
+                            <td><StatusBar value={39} /></td>
                         </tr>
                     </tbody>
                 </table>

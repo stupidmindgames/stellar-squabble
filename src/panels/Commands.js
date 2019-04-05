@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import StatusBar from '../components/StatusBar';
 
 class Commands extends Component { 
   render() {
@@ -13,12 +14,12 @@ class Commands extends Component {
                     <tbody>
                         <tr>
                             <td>Eff.</td>
-                            <td>100%</td>
+                            <td><StatusBar value={50} /></td>
                         </tr>
 
                         <tr>
                             <td>Temp.</td>
-                            <td>0</td>
+                            <td><StatusBar value={0} /></td>
                         </tr>
                     </tbody>
                 </table>

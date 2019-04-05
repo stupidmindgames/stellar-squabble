@@ -1,5 +1,16 @@
 &.unit--systems {
     .unit__inner {
         background-color: $bg-unit;
+
+        .table__systems {
+            tr {
+                td:first-child {
+                    width: 62%;
+                }
+                td:last-child {
+                    width: 38%;
+                }
+            }
+        }
     }
 }
