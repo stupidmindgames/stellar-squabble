@@ -9,8 +9,7 @@ import Viewer from './panels/Viewer.js';
 import Commands from './panels/Commands.js';
 import Systems from './panels/Systems.js';
 import Badge from './panels/Badge.js';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import CommandPanel from './components/CommandPanel.js';
 
 class App extends Component {
   constructor(props, context) {
@@ -200,32 +199,7 @@ class App extends Component {
           </Row>
         </Container>
 
-        <Modal size="lg" show={this.state.commandPanelShow} onHide={this.handleCommandPanelClose}>
-          <Modal.Header>
-            <Modal.Title>Command Panel</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            <ul>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-              <li>A list of commands</li>
-            </ul>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleCommandPanelClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <CommandPanel show={this.state.commandPanelShow} close={this.handleCommandPanelClose} />
       </div>
     );
   }
