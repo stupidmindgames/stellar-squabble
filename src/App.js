@@ -21,6 +21,17 @@ class App extends Component {
 
     // this will eventually be the default state
     // and commands will update it
+    let location = {
+      sector: {
+        x: 6,
+        y: 3,
+      },
+      quad: {
+        x: 4,
+        y: 4,
+      },
+    }
+
     let value = {
       badge: {
         shipName : 'USS Lexington',
@@ -34,8 +45,7 @@ class App extends Component {
       },
       galaxy: {
         shipName : 'USS Lexington',
-        sector: 6,
-        quad: 3,
+        location: location,
         galaxy: [],
       },
       messages: {

@@ -32,6 +32,11 @@
 						display: inline-block;
 						width: 12px;
 					}
+
+					&.td__galaxyCell--current {
+						color: $galaxyCellCurrent-fg;
+						background-color: $galaxyCellCurrent-bg;
+					}
 				}
 			}
 

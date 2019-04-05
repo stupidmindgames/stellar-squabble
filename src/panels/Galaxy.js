@@ -4,7 +4,8 @@ import {Col} from 'react-bootstrap';
 class Galaxy extends Component { 
   render() {
     let {value} = this.props;
-    let {shipName, sector, quad, galaxy} = value;
+    let {shipName, location, galaxy} = value;
+    let {sector, quad} = location;
 
     let galaxyCells = [];
 
@@ -26,8 +27,14 @@ class Galaxy extends Component {
         for(let j = 1; j <= 8; j++) {
             let cell = galaxy[i][j-1];
 
+            let currentSector = '';
+
+            if( (i + 1) === location.sector.x && j === location.sector.y ) {
+                currentSector = 'td__galaxyCell--current';
+            }
+
             cells.push(
-                <td className="td__galaxyCell" key={'galaxyCell_' + j}>
+                <td className={'td__galaxyCell ' + currentSector} key={'galaxyCell_' + j}>
                     <span className="span__galaxyCellStat">{cell.stars}</span>
                     <span className="span__galaxyCellStat">{cell.mongs}</span>
                     <span className="span__galaxyCellStat">{cell.bases}</span>
@@ -55,7 +62,7 @@ class Galaxy extends Component {
                     </tbody>
                 </table>
 
-                <p>{shipName} in quad {sector}-{quad}</p>
+                <p>{shipName} in quad {sector.x}-{sector.y}</p>
             </div>
         </Col>
     );
