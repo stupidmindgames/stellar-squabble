@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
 import Gauge from 'react-svg-gauge';
+import Torps from '../components/Torps';
 
 class Status extends Component {
     constructor(props, context) {
@@ -66,7 +67,7 @@ class Status extends Component {
                     </div>
 
                     <div className="block__statusPanel block__statusPanel--torps">
-                        9
+                        <Torps value={9} />
                     </div>
 
                     <div className="block__statusPanel block__statusPanel--warp">
