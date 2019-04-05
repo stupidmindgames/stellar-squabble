@@ -1,31 +1,9 @@
 import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
-import Gauge from 'react-svg-gauge';
 import Torps from '../components/Torps';
+import StatusGauge from '../components/StatusGauge';
 
 class Status extends Component {
-    constructor(props, context) {
-        super(props, context);
-    
-        this.energy = this.energy.bind(this);
-    }
-
-    energy(value) {
-        if(value <= 25) {
-            return '#ff0000';
-        }
-        
-        if(value <= 50) {
-            return '#ff7700';
-        }
-        
-        if(value <= 75) {
-            return '#ffff00';
-        }
-
-        return '#00aa00';
-    }
-
     render() {
         return (
             <Col className="unit unit--status" xs="12" md="6"lg="3">
@@ -41,28 +19,16 @@ class Status extends Component {
                     </div>
 
                     <div className="block__gauge block__gauge--energy">
-                        <Gauge
+                        <StatusGauge
                             label={'Energy'}
-                            width={96}
-                            height={80}
-                            min={0}
-                            max={100}
                             value={80}
-                            color={this.energy(80)}
-                            minMaxLabelStyle={{'display': 'none'}}
                         />
                     </div>
 
                     <div className="block__gauge block__gauge--shields">
-                        <Gauge
+                        <StatusGauge
                             label={'Shields'}
-                            width={96}
-                            height={80}
-                            min={0}
-                            max={100}
                             value={65}
-                            color={this.energy(65)}
-                            minMaxLabelStyle={{'display': 'none'}}
                         />
                     </div>
 
@@ -84,4 +50,3 @@ class Status extends Component {
 }
 
 export default Status;
-
