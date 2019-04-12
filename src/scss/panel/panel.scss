@@ -1,4 +1,4 @@
-.unit {
+.panel {
   position: relative;
   height: 256px;
   padding: 0;
@@ -36,14 +36,14 @@
     }
   }
 
-  .unit__inner {
+  .panel__inner {
     width: 250px;
     height: 250px;
     margin: 3px 3px;
     padding: 4px;
     border: 1px solid $border;
 
-    &.unit__inner--short {
+    &.panel__inner--short {
       height: 124px;
       margin-bottom: 2px;
 
@@ -53,19 +53,23 @@
     }
   }
 
-  &.unit--tall {
+  &.panel--tall {
     position: relative;
     height: 506px;
 
-    >.unit__inner {
+    >.panel__inner {
       height: 506px;
     }
   }
 
-  &.unit--double {
-    >.unit__inner {
+  &.panel--double {
+    >.panel__inner {
       width: 506px;
     }
+  }
+
+  &.panel--dim {
+    opacity: 0.1;
   }
 
   @import 'badge';

@@ -15,7 +15,7 @@ body {
     margin: 0 auto;
     color: $mainText;
 
-    @import 'unit/unit';
+    @import 'panel/panel';
   }
 
   @import 'modal/modal';

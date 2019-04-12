@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Panel from './Panel';
-import {Col} from 'react-bootstrap';
 
-class Galaxy extends Panel { 
+class Galaxy extends Component { 
   render() {
-    let {value} = this.props;
+    let {value, dim} = this.props;
     let {shipName, location, galaxy} = value;
     let {sector, quad} = location;
 
@@ -53,19 +52,17 @@ class Galaxy extends Panel {
     }
 
     return (
-        <Col className="unit unit--double unit--galaxy" xs="12" md="12" lg="6">
-            <div className="unit__inner">
-                <h2>Chart of Known Galaxy</h2>
+        <Panel className="galaxy" dim={dim} double={true} xs="12" md="12" lg="6">
+            <h2>Chart of Known Galaxy</h2>
 
-                <table className="table__galaxy">
-                    <tbody>
-                        {galaxyRows}
-                    </tbody>
-                </table>
+            <table className="table__galaxy">
+                <tbody>
+                    {galaxyRows}
+                </tbody>
+            </table>
 
-                <p>{shipName} in quad {sector.x}-{sector.y}</p>
-            </div>
-        </Col>
+            <p>{shipName} in quad {sector.x}-{sector.y}</p>
+        </Panel>
     );
   }
 }

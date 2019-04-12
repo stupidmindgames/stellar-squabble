@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Panel from './Panel';
-import {Col} from 'react-bootstrap';
 
-class Messages extends Panel { 
+class Messages extends Component { 
   render() {
-    let {value} = this.props;
+    let {value, dim} = this.props;
     let {messagesData} = value;
 
     let messages = [];
@@ -27,14 +26,11 @@ class Messages extends Panel {
     }
 
     return (
-    	<Col className="unit unit--double unit--tall unit--messages" xs="12" md="12" lg="6">
-            <div className="unit__inner">
-                {messages}
-            </div>
-    	</Col>
+      <Panel panelName="messages" double={true} tall={true} dim={dim} xs="12" md="12" lg="6">
+        {messages}
+      </Panel>
     );
   }
 }
 
 export default Messages;
-

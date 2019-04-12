@@ -1,17 +1,21 @@
-import React from 'react';
-import Panel from './Panel';
+import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import StatusBar from '../components/StatusBar';
 
-class Commands extends Panel { 
+class Commands extends Component { 
   render() {
-    let {value} = this.props;
+    let {value, dim} = this.props;
     let {eff, temp} = value;
+    
+    let className = 'panel panel--commands';
+    if(dim) {
+        className += ' panel--dim';
+    }
 
     return (
-        <Col className="unit unit--commands" xs="12" lg="6">
-            <div className="unit__inner unit__inner--short unit__inner--lasers">
+        <Col className={className} xs={'12'} lg={'6'}>
+            <div className="panel__inner panel__inner--short panel__inner--lasers">
                 <h2>Lasers</h2>
 
                 <table>
@@ -29,7 +33,7 @@ class Commands extends Panel {
                 </table>
             </div>
 
-            <div className="unit__inner unit__inner--short unit__inner--commands">
+            <div className="panel__inner panel__inner--short panel__inner--commands">
                  <Button variant="light" onClick={this.props.handleCommandPanelClick}>
                     Command Panel
                 </Button>

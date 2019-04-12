@@ -1,34 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Panel from './Panel';
-import {Col} from 'react-bootstrap';
 
-class Viewer extends Panel { 
+class Viewer extends Component { 
   render() {
-    // let {value} = this.props;
+    let {value, dim} = this.props;
     // let {xxx} = value;
 
     return (
-        <Col className="unit unit--viewer" xs="12" lg="6">
-            <div className="unit__inner">
-                <h2>Main Viewer</h2>
+        <Panel panelName="viewer" dim={dim} xs="12" lg="6">
+          <h2>Main Viewer</h2>
 
-                <div className="block__viewScreen">
-                
-                  <div className="block__viewScreenLayer block__viewScreenLayer--1">
-                  </div>
-                
-                  <div className="block__viewScreenLayer block__viewScreenLayer--2">
-                  </div>
-                
-                  <div className="block__viewScreenLayer block__viewScreenLayer--3">
-                  </div>
-                
-                  <div className="block__viewScreenLayer block__viewScreenLayer--4">
-                  </div>
-                
-                </div>
+          <div className="block__viewScreen">
+          
+            <div className="block__viewScreenLayer block__viewScreenLayer--1">
             </div>
-        </Col>
+          
+            <div className="block__viewScreenLayer block__viewScreenLayer--2">
+            </div>
+          
+            <div className="block__viewScreenLayer block__viewScreenLayer--3">
+            </div>
+          
+            <div className="block__viewScreenLayer block__viewScreenLayer--4">
+            </div>
+          
+          </div>
+        </Panel>
     );
   }
 }

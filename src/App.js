@@ -17,6 +17,8 @@ class App extends Component {
 
     this.handleCommandPanelClick = this.handleCommandPanelClick.bind(this);
     this.handleCommandPanelClose = this.handleCommandPanelClose.bind(this);
+    this.dimPanels = this.dimPanels.bind(this);
+    this.dimAll = this.dimAll.bind(this);
 
     // this will eventually be the default state
     // and commands will update it
@@ -131,7 +133,19 @@ class App extends Component {
       game.sector.sector.push(cells);
     }
 
+    let dim = {
+      badge: false,
+      commands: false,
+      galaxy: false,
+      messages: false,
+      sector: false,
+      status: false,
+      systems: false,
+      viewer: false,
+    }
+
     this.state = {
+      dim: dim,
       game: game,
       player: player,
       commandPanelShow: false,
@@ -165,9 +179,38 @@ class App extends Component {
     });
   }
 
+  dimPanels(panels, dimness) {
+    let {dim} = this.state;
+    let newDim = [];
+
+    for(let panel of panels) {
+      console.log(panel); 
+      newDim[panel] = dimness;
+    }
+
+    this.setState({
+      dim: {...dim, ...newDim},
+    });
+  }
+
+  dimAll(dimness) {
+    let panels = [
+      'badge',
+      'commands',
+      'galaxy',
+      'messages',
+      'sector',
+      'status',
+      'systems',
+      'viewer',
+    ];
+
+    this.dimPanels(panels, dimness);
+  }
+
   render() {
     // it seems mental doing it like this now, but bear with me
-    let {game, player} = this.state;
+    let {game, player, dim} = this.state;
     let {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
 
     return (
@@ -175,30 +218,36 @@ class App extends Component {
         <Container className="no-gutters container__game">
           <Row>
             <Galaxy
+              dim={dim.galaxy}
               value={galaxy}
             />
 
             <Status
+              dim={dim.status}
               value={status}
             />
 
             <Sector
+              dim={dim.sector}
               value={sector}
             />
           </Row>
           
           <Row>
             <Messages
+              dim={dim.messages}
               value={messages}
             />
 
             <Col className="unit unit--tall" xs="12" md="12" lg="6">
               <Row>
                 <Viewer
+                  dim={dim.viewer}
                   value={viewer}
                 />
             
                 <Commands
+                  dim={dim.commands}
                   commands={this.commands}
                   handleCommandPanelClick={this.handleCommandPanelClick} 
                   value={commands}
@@ -207,10 +256,12 @@ class App extends Component {
 
               <Row>
                 <Systems
+                  dim={dim.systems}
                   value={systems}
                 />
             
                 <Badge
+                  dim={dim.badge}
                   value={badge}
                 />
               </Row>

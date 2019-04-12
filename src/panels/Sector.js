@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Panel from './Panel';
-import {Col} from 'react-bootstrap';
 
-class Sector extends Panel { 
+class Sector extends Component { 
   render() {
-    let {value} = this.props;
+    let {value, dim} = this.props;
     let {sector} = value;
 
     let sectorCells = [];
@@ -38,15 +37,13 @@ class Sector extends Panel {
     }
 
     return (
-        <Col className="unit unit--sector" xs="12" md="6"lg="3">
-            <div className="unit__inner">
-                <table className="table__sector">
-                    <tbody>
-                        {sectorRows}
-                    </tbody>
-                </table>
-            </div>
-        </Col>
+        <Panel panelName="sector" dim={dim} xs="12" md="6" lg="3">
+            <table className="table__sector">
+                <tbody>
+                    {sectorRows}
+                </tbody>
+            </table>
+        </Panel>
     );
   }
 }

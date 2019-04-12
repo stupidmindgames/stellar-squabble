@@ -5,14 +5,16 @@ import Button from 'react-bootstrap/Button';
 class CommandPanel extends Component {
     render() {
         var {show, close, commands} = this.props;
-        let commandComponents = [];
+        let commandComponents = [], i = 0;
 
         for(let command in commands) {
             commandComponents.push(
-                <li>
+                <li key={'command_' + i}>
                     <Button onClick={commands[command].action}>{commands[command].name}</Button>
                 </li>
             );
+            
+            i++;
         }
 
         return (
