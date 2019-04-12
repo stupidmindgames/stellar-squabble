@@ -52,7 +52,7 @@ class Galaxy extends Component {
     }
 
     return (
-        <Panel className="galaxy" dim={dim} double={true} xs="12" md="12" lg="6">
+        <Panel panelName="galaxy" dim={dim} double={true} xs="12" md="12" lg="6">
             <h2>Chart of Known Galaxy</h2>
 
             <table className="table__galaxy">

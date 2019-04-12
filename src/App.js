@@ -10,6 +10,7 @@ import Commands from './panels/Commands.js';
 import Systems from './panels/Systems.js';
 import Badge from './panels/Badge.js';
 import CommandPanel from './components/CommandPanel.js';
+import MoveQuad from './commands/MoveQuad.js';
 
 class App extends Component {
   constructor(props, context) {
@@ -161,9 +162,13 @@ class App extends Component {
     },
     moveQuad: {
       name: 'Move within sector ',
-      action: () => {
-        alert('Move quadrant');
-      },
+      command: (
+        <MoveQuad action={
+          () => {
+            alert('Move quadrant');
+          }        
+        } />
+      ),
     },
   }
 
@@ -184,7 +189,6 @@ class App extends Component {
     let newDim = [];
 
     for(let panel of panels) {
-      console.log(panel); 
       newDim[panel] = dimness;
     }
 
