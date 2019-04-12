@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Panel from './Panel';
 import {Col} from 'react-bootstrap';
 import Torps from '../components/Torps';
 import StatusGauge from '../components/StatusGauge';
 
-class Status extends Component {
+class Status extends Panel {
     render() {
         let {value} = this.props;
         let {date, status, statusText, statusColour, energy, shields, torps, warp, mongols} = value;

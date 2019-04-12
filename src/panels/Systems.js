@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Panel from './Panel';
 import {Col} from 'react-bootstrap';
 import StatusBar from '../components/StatusBar';
 
-class Systems extends Component { 
+class Systems extends Panel { 
   render() {
     let {value} = this.props;
     let {energy, shields, lifeSupport, lasers, torps,

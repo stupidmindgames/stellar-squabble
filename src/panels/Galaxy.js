@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Panel from './Panel';
 import {Col} from 'react-bootstrap';
 
-class Galaxy extends Component { 
+class Galaxy extends Panel { 
   render() {
     let {value} = this.props;
     let {shipName, location, galaxy} = value;

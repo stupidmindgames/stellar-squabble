@@ -20,18 +20,20 @@ class App extends Component {
 
     // this will eventually be the default state
     // and commands will update it
-    let location = {
-      sector: {
-        x: 6,
-        y: 3,
+    let player = {
+      location : {
+        sector: {
+          x: 6,
+          y: 3,
+        },
+        quad: {
+          x: 4,
+          y: 4,
+        },
       },
-      quad: {
-        x: 4,
-        y: 4,
-      },
-    }
+    };
 
-    let value = {
+    let game = {
       badge: {
         shipName : 'USS Lexington',
         shipReg: 'RCB-92',
@@ -44,7 +46,7 @@ class App extends Component {
       },
       galaxy: {
         shipName : 'USS Lexington',
-        location: location,
+        location:  player.location,
         galaxy: [],
       },
       messages: {
@@ -114,7 +116,7 @@ class App extends Component {
         cells.push(cell);
       }
 
-      value.galaxy.galaxy.push(cells);
+      game.galaxy.galaxy.push(cells);
     }
 
     for(let i = 0; i < 8; i++) {
@@ -126,11 +128,12 @@ class App extends Component {
         cells.push(cell);
       }
 
-      value.sector.sector.push(cells);
+      game.sector.sector.push(cells);
     }
 
     this.state = {
-      value: value,
+      game: game,
+      player: player,
       commandPanelShow: false,
     }
   }
@@ -164,8 +167,8 @@ class App extends Component {
 
   render() {
     // it seems mental doing it like this now, but bear with me
-    let {value} = this.state;
-    let {badge, commands, galaxy, messages, sector, status, systems, viewer} = value;
+    let {game, player} = this.state;
+    let {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
 
     return (
       <div>

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Panel from './Panel';
 import {Col} from 'react-bootstrap';
 
-class Messages extends Component { 
+class Messages extends Panel { 
   render() {
     let {value} = this.props;
     let {messagesData} = value;

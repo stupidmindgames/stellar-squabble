@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Panel from './Panel';
 import {Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import StatusBar from '../components/StatusBar';
 
-class Commands extends Component { 
+class Commands extends Panel { 
   render() {
     let {value} = this.props;
     let {eff, temp} = value;
