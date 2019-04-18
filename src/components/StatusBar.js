@@ -3,7 +3,7 @@ import { Line } from 'rc-progress';
 
 class StatusBar extends Component { 
     render() {
-        let {value} = this.props;
+        const {value} = this.props;
 
         return (
             <Line percent={value} strokeWidth="8" strokeColor="#ffffff" />

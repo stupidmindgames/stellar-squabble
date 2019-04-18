@@ -3,9 +3,9 @@ import Panel from './Panel';
 
 class Galaxy extends Component { 
   render() {
-    let {value, dim} = this.props;
-    let {shipName, location, galaxy} = value;
-    let {sector, quad} = location;
+    const {value, dim} = this.props;
+    const {shipName, location, galaxy} = value;
+    const {sector, quad} = location;
 
     let galaxyCells = [];
 

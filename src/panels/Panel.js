@@ -3,7 +3,7 @@ import {Col} from 'react-bootstrap';
 
 class Panel extends Component { 
   render() {
-    let {children, panelName, double, tall, dim, xs, md, lg} = this.props;
+    const {children, panelName, double, tall, dim, xs, md, lg} = this.props;
     let className = 'panel';
 
     if(panelName) {

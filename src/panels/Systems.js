@@ -4,8 +4,8 @@ import StatusBar from '../components/StatusBar';
 
 class Systems extends Component { 
   render() {
-    let {value, dim} = this.props;
-    let {energy, shields, lifeSupport, lasers, torps,
+    const {value, dim} = this.props;
+    const {energy, shields, lifeSupport, lasers, torps,
         warp, impulse, shortRange, longRange, computer} = value;
 
     return (

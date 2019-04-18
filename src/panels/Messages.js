@@ -3,8 +3,8 @@ import Panel from './Panel';
 
 class Messages extends Component { 
   render() {
-    let {value, dim} = this.props;
-    let {messagesData} = value;
+    const {value, dim} = this.props;
+    const {messagesData} = value;
 
     let messages = [];
 

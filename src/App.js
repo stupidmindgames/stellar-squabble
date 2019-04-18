@@ -149,28 +149,25 @@ class App extends Component {
       dim: dim,
       game: game,
       player: player,
-      commandPanelShow: false,
+      commandPanelShow: true,
     }
   }
 
-  commands = {
-    moveSector: {
+  commands = [
+    {
       name: 'Move within galaxy',
-      action: () => {
-        alert('Move sector');
-      },
+      component: null,
     },
-    moveQuad: {
-      name: 'Move within sector ',
-      command: (
+    {
+      name: 'Move within sector',
+      component:
         <MoveQuad action={
           () => {
             alert('Move quadrant');
           }        
-        } />
-      ),
+        } />,
     },
-  }
+  ];
 
   handleCommandPanelClick() {
     this.setState({
@@ -185,7 +182,7 @@ class App extends Component {
   }
 
   dimPanels(panels, dimness) {
-    let {dim} = this.state;
+    const {dim} = this.state;
     let newDim = [];
 
     for(let panel of panels) {
@@ -214,8 +211,8 @@ class App extends Component {
 
   render() {
     // it seems mental doing it like this now, but bear with me
-    let {game, player, dim} = this.state;
-    let {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
+    const {game, player, dim} = this.state;
+    const {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
 
     return (
       <div>

@@ -25,7 +25,7 @@ class StatusGauge extends Component {
     }
 
     render() {
-        let {label, value} = this.props;
+        const {label, value} = this.props;
 
         return (
             <Gauge

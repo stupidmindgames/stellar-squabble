@@ -5,8 +5,8 @@ import StatusGauge from '../components/StatusGauge';
 
 class Status extends Component {
     render() {
-        let {value, dim} = this.props;
-        let {date, status, statusText, statusColour, energy, shields, torps, warp, mongols} = value;
+        const {value, dim} = this.props;
+        const {date, status, statusText, statusColour, energy, shields, torps, warp, mongols} = value;
     
         return (
             <Panel panelName="status" dim={dim} xs="12" md="6"lg="3">

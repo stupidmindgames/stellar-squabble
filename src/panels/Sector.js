@@ -3,8 +3,8 @@ import Panel from './Panel';
 
 class Sector extends Component { 
   render() {
-    let {value, dim} = this.props;
-    let {sector} = value;
+    const {value, dim} = this.props;
+    const {sector} = value;
 
     let sectorCells = [];
 

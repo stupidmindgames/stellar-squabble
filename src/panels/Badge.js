@@ -3,8 +3,8 @@ import Panel from './Panel';
 
 class Badge extends Component { 
   render() {
-    let {value, dim} = this.props;
-    let {shipName, shipReg, badge, dept} = value;
+    const {value, dim} = this.props;
+    const {shipName, shipReg, badge, dept} = value;
     
     return (
         <Panel panelName="badge" dim={dim} xs="12" lg="6">

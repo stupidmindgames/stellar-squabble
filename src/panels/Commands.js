@@ -5,8 +5,8 @@ import StatusBar from '../components/StatusBar';
 
 class Commands extends Component { 
   render() {
-    let {value, dim} = this.props;
-    let {eff, temp} = value;
+    const {value, dim} = this.props;
+    const {eff, temp} = value;
     
     let className = 'panel panel--commands';
     if(dim) {

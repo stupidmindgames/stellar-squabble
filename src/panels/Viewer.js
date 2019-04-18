@@ -3,8 +3,8 @@ import Panel from './Panel';
 
 class Viewer extends Component { 
   render() {
-    let {value, dim} = this.props;
-    // let {xxx} = value;
+    const {value, dim} = this.props;
+    // const {xxx} = value;
 
     return (
         <Panel panelName="viewer" dim={dim} xs="12" lg="6">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Torps extends Component { 
     render() {
-        let {value} = this.props;
+        const {value} = this.props;
         let torps = [];
 
         for(let i = 0; i < value; i++) {
