@@ -156,7 +156,12 @@ class App extends Component {
   commands = [
     {
       name: 'Move within galaxy',
-      component: null,
+      component:
+        <MoveQuad action={
+          () => {
+            alert('Move sector');
+          }        
+        } />,
     },
     {
       name: 'Move within sector',
