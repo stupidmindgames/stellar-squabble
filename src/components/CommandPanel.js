@@ -15,7 +15,7 @@ class CommandPanel extends Component {
     }
 
     selectCommand(commandComponent) {
-        this.setState = ({
+        this.setState({
             selectedCommandComponent: commandComponent,
         });
     }
@@ -23,19 +23,18 @@ class CommandPanel extends Component {
     render() {
         const {selectedCommandComponent} = this.state;
         const {show, close, commands} = this.props;
-        let commandComponents = [], i = 0, selectCommand = this.selectCommand;
 
-        for(let command of commands) {
-            commandComponents.push(
-                <li key={'command_' + i}>
-                    <Button onClick={() => {selectCommand(command.component)}}>
-                        {command.name}
-                    </Button>
-                </li>
-            );
-            
-            i++;
-        }
+        const commandComponents = commands.map(
+            (command, i) => {
+                return (
+                    <li key={'command_' + i}>
+                        <Button onClick={() => {this.selectCommand(command.component)}}>
+                            {command.name}
+                        </Button>
+                    </li>
+                );
+            }
+        );
 
         return (
             <Modal size="lg" className='modal__commands' show={show} onHide={close}>
