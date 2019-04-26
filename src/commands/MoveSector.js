@@ -8,7 +8,7 @@ class MoveSector extends Component {
 
         return (
             <div>
-                <Galaxy value={value} />
+                <Galaxy value={value} click={true} />
 
                 <Button onClick={action}>Move</Button>
             </div>

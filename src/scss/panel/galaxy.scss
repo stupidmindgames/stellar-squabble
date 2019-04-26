@@ -37,6 +37,10 @@
 						color: $galaxyCellCurrent-fg;
 						background-color: $galaxyCellCurrent-bg;
 					}
+
+					&.td__galaxyCell--clicky {
+						cursor: pointer;
+					}
 				}
 			}
 

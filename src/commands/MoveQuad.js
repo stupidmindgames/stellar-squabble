@@ -8,7 +8,7 @@ class MoveQuad extends Component {
 
         return (
             <div>
-                <Sector value={value} />
+                <Sector value={value} click={true} />
 
                 <Button onClick={action}>Move</Button>
             </div>

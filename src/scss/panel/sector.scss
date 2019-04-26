@@ -25,6 +25,10 @@
 						color: $sectorCellCurrent-fg;
 						background-color: $sectorCellCurrent-bg;
 					}
+
+					&.td__sectorCell--clicky {
+						cursor: pointer;
+					}
 				}
 			}
 
