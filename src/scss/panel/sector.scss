@@ -18,7 +18,13 @@
 				}
 
 				&.td__sectorCell {
+					border-radius: 50%;
 					color: $sectorCell;
+
+					&.td__sectorCell--current {
+						color: $sectorCellCurrent-fg;
+						background-color: $sectorCellCurrent-bg;
+					}
 				}
 			}
 

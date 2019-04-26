@@ -11,6 +11,7 @@ import Systems from './panels/Systems.js';
 import Badge from './panels/Badge.js';
 import CommandPanel from './components/CommandPanel.js';
 import MoveQuad from './commands/MoveQuad.js';
+import MoveSector from './commands/MoveSector.js';
 
 class App extends Component {
   constructor(props, context) {
@@ -18,6 +19,9 @@ class App extends Component {
 
     this.handleCommandPanelClick = this.handleCommandPanelClick.bind(this);
     this.handleCommandPanelClose = this.handleCommandPanelClose.bind(this);
+    this.handleMoveQuad = this.handleMoveQuad.bind(this);
+    this.handleMoveSector = this.handleMoveSector.bind(this);
+    
     this.dimPanels = this.dimPanels.bind(this);
     this.dimAll = this.dimAll.bind(this);
 
@@ -30,8 +34,8 @@ class App extends Component {
           y: 3,
         },
         quad: {
-          x: 4,
-          y: 4,
+          x: 3,
+          y: 5,
         },
       },
     };
@@ -47,11 +51,7 @@ class App extends Component {
         eff: 50,
         temp: 0,
       },
-      galaxy: {
-        shipName : 'USS Lexington',
-        location:  player.location,
-        galaxy: [],
-      },
+      galaxy: [],
       messages: {
         messagesData: [
           {
@@ -76,9 +76,7 @@ class App extends Component {
           },
         ],
       },
-      sector: {
-        sector: [],
-      },
+      sector: [],
       status: {
         date: 3500.0,
         status: 'alert',
@@ -119,7 +117,7 @@ class App extends Component {
         cells.push(cell);
       }
 
-      game.galaxy.galaxy.push(cells);
+      game.galaxy.push(cells);
     }
 
     for(let i = 0; i < 8; i++) {
@@ -131,7 +129,7 @@ class App extends Component {
         cells.push(cell);
       }
 
-      game.sector.sector.push(cells);
+      game.sector.push(cells);
     }
 
     let dim = {
@@ -153,26 +151,13 @@ class App extends Component {
     }
   }
 
-  commands = [
-    {
-      name: 'Move within galaxy',
-      component:
-        <MoveQuad action={
-          () => {
-            alert('Move sector');
-          }        
-        } />,
-    },
-    {
-      name: 'Move within sector',
-      component:
-        <MoveQuad action={
-          () => {
-            alert('Move quadrant');
-          }        
-        } />,
-    },
-  ];
+  handleMoveQuad(quadCoords) {
+    alert(quadCoords);
+  }
+
+  handleMoveSector(sectorCoords) {
+    alert(sectorCoords);
+  }
 
   handleCommandPanelClick() {
     this.setState({
@@ -219,13 +204,26 @@ class App extends Component {
     const {game, player, dim} = this.state;
     const {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
 
+    const commandComponents = [
+      {
+        name: 'Move within galaxy',
+        component:
+          <MoveSector value={{galaxy: galaxy, location: player.location}} action={this.handleMoveSector} />,
+      },
+      {
+        name: 'Move within sector',
+        component:
+          <MoveQuad value={{sector: sector, location: player.location}} action={this.handleMoveQuad} />,
+      },
+    ];
+
     return (
       <div>
         <Container className="no-gutters container__game">
           <Row>
             <Galaxy
               dim={dim.galaxy}
-              value={galaxy}
+              value={{galaxy: galaxy, location: player.location}}
             />
 
             <Status
@@ -235,7 +233,7 @@ class App extends Component {
 
             <Sector
               dim={dim.sector}
-              value={sector}
+              value={{sector: sector, location: player.location}}
             />
           </Row>
           
@@ -254,7 +252,7 @@ class App extends Component {
             
                 <Commands
                   dim={dim.commands}
-                  commands={this.commands}
+                  commands={commandComponents}
                   handleCommandPanelClick={this.handleCommandPanelClick} 
                   value={commands}
                 />
@@ -276,7 +274,7 @@ class App extends Component {
         </Container>
 
         <CommandPanel
-          commands={this.commands}
+          commands={commandComponents}
           show={this.state.commandPanelShow}
           close={this.handleCommandPanelClose}
         />

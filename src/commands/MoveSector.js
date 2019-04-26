@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import Galaxy from '../panels/Galaxy';
 
 class MoveSector extends Component {
     render() {
-        const {action} = this.props;
+        const {value, action} = this.props;
 
         return (
-            <Button onClick={action}>Move</Button>
+            <div>
+                <Galaxy value={value} />
+
+                <Button onClick={action}>Move</Button>
+            </div>
         );
     }
 }

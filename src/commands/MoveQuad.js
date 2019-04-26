@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import Sector from '../panels/Sector.js';
 import Button from 'react-bootstrap/Button';
 
 class MoveQuad extends Component {
     render() {
-        const {action} = this.props;
+        const {value, action} = this.props;
 
         return (
-            <Button onClick={action}>Move</Button>
+            <div>
+                <Sector value={value} />
+
+                <Button onClick={action}>Move</Button>
+            </div>
         );
     }
 }

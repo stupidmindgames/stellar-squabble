@@ -4,7 +4,8 @@ import Panel from './Panel';
 class Sector extends Component { 
   render() {
     const {value, dim} = this.props;
-    const {sector} = value;
+    const {sector, location} = value;
+    const {quad} = location;
 
     let sectorCells = [];
 
@@ -24,7 +25,17 @@ class Sector extends Component {
         let cells = [];
 
         for(let j = 1; j <= 8; j++) {
-            cells.push(<td className="td__sectorCell" key={'sectorCell_' + j}>{sector[i][j -1]}</td>);
+            if((i + 1) === quad.x && j === quad.y) {
+                cells.push(
+                    <td className="td__sectorCell td__sectorCell--current" key={'sectorCell_' + j}>
+                        X
+                    </td>
+                );
+            } else {
+                cells.push(
+                    <td className="td__sectorCell" key={'sectorCell_' + j}>{sector[i][j -1]}</td>
+                );
+            }
         }
 
         sectorRows.push(
