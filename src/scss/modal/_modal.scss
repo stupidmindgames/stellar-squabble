@@ -1,0 +1,21 @@
+.modal-content {
+    background-color: $modal-bg;
+
+    .modal-body {
+        .panel {
+            &.panel--galaxy {
+                .panel__inner {
+                    background-color: #000011;
+                }
+            }
+            
+            &.panel--sector {
+                .panel__inner {
+                    background-color: #000011;
+                }
+            }
+        }
+    
+        @import 'command';
+    }
+}

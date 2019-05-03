@@ -14,9 +14,9 @@ body {
     max-width: 1024px;
     margin: 0 auto;
     color: $mainText;
-
-    @import 'panel/panel';
   }
+
+  @import 'panel/panel';
 
   @import 'modal/modal';
 }
