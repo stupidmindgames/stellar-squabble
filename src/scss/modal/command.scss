@@ -1,6 +1,12 @@
-.block__commandList ,
+.block__commandList,
 .block__commandShow {
     height: 520px;
+}
+
+.block__commandShow {
+    .row {
+        width: 512px;
+    }
 }
 
 .block__commandList {

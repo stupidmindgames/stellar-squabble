@@ -12,7 +12,7 @@ class MoveQuad extends Component {
             <div>
                 <h2>Move Within Sector</h2>
 
-                <Row>
+                <Row noGutters={true}>
                     <Sector value={value} click={true} xs="12" md="6" lg="6" />
 
                     <Coords xs="12" md="6" lg="6" />

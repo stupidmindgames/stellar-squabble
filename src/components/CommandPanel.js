@@ -38,10 +38,6 @@ class CommandPanel extends Component {
 
         return (
             <Modal size="lg" className='modal__commands' show={show} onHide={close}>
-                <Modal.Header>
-                    <Modal.Title>Command Panel</Modal.Title>
-                </Modal.Header>
-
                 <Modal.Body>
                     <Row>
                         <Col className={'block__commandList'} xs="3">

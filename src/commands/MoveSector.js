@@ -13,11 +13,11 @@ class MoveSector extends Component {
             <div>
                 <h2>Move Within Galaxy</h2>
 
-                <Row>
-                    <Galaxy value={value} click={true} />
+                <Row noGutters={true}>
+                    <Galaxy value={value} click={true} xs="12" md="12" lg="12" />
                 </Row>
 
-                <Row>
+                <Row noGutters={true}>
                     <Sector value={value} click={true} xs="12" md="6" lg="6" />
 
                     <Coords xs="12" md="6" lg="6" />
