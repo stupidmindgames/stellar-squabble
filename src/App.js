@@ -208,7 +208,7 @@ class App extends Component {
       {
         name: 'Move within galaxy',
         component:
-          <MoveSector value={{galaxy: galaxy, location: player.location}} action={this.handleMoveSector} />,
+          <MoveSector value={{galaxy: galaxy, sector: sector, location: player.location}} action={this.handleMoveSector} />,
       },
       {
         name: 'Move within sector',
