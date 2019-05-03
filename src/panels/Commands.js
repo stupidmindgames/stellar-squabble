@@ -5,7 +5,7 @@ import StatusBar from '../components/StatusBar';
 
 class Commands extends Component { 
   render() {
-    const {value, dim} = this.props;
+    const {value, dim, xs, md, lg} = this.props;
     const {eff, temp} = value;
     
     let className = 'panel panel--commands';
@@ -14,7 +14,7 @@ class Commands extends Component {
     }
 
     return (
-        <Col className={className} xs={'12'} lg={'6'}>
+        <Col className={className} xs={xs ? xs : "12"} md={md ? md : "6"} lg={lg ? lg :"6"}>
             <div className="panel__inner panel__inner--short panel__inner--lasers">
                 <h2>Lasers</h2>
 

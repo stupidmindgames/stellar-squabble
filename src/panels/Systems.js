@@ -4,12 +4,12 @@ import StatusBar from '../components/StatusBar';
 
 class Systems extends Component { 
   render() {
-    const {value, dim} = this.props;
+    const {value, dim, xs, md, lg} = this.props;
     const {energy, shields, lifeSupport, lasers, torps,
         warp, impulse, shortRange, longRange, computer} = value;
 
     return (
-        <Panel panelName="systems" dim={dim} xs="12" lg="6">
+        <Panel panelName="systems" dim={dim} xs={xs ? xs : "12"} md={md ? md : "6"} lg={lg ? lg :"6"}>
             <h2>Systems Status</h2>
 
             <table className="table__systems">

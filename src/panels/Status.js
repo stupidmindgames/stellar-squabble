@@ -5,11 +5,11 @@ import StatusGauge from '../components/StatusGauge';
 
 class Status extends Component {
     render() {
-        const {value, dim} = this.props;
+        const {value, dim, xs, md, lg} = this.props;
         const {date, status, statusText, statusColour, energy, shields, torps, warp, mongols} = value;
     
         return (
-            <Panel panelName="status" dim={dim} xs="12" md="6"lg="3">
+            <Panel panelName="status" dim={dim} xs={xs ? xs : "12"} md={md ? md : "6"} lg={lg ? lg :"3"}>
                 <div className="block__statusPanel block__statusPanel--date">
                     <span>Date:</span>
 

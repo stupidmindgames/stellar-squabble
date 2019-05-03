@@ -3,7 +3,7 @@ import Panel from './Panel';
 
 class Messages extends Component { 
   render() {
-    const {value, dim} = this.props;
+    const {value, dim, xs, md, lg} = this.props;
     const {messagesData} = value;
 
     let messages = [];
@@ -26,7 +26,7 @@ class Messages extends Component {
     }
 
     return (
-      <Panel panelName="messages" double={true} tall={true} dim={dim} xs="12" md="12" lg="6">
+      <Panel panelName="messages" double={true} tall={true} dim={dim} xs={xs ? xs : "12"} md={md ? md : "12"} lg={lg ? lg :"6"}>
         {messages}
       </Panel>
     );

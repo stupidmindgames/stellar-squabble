@@ -25,7 +25,7 @@ class Galaxy extends Component {
 
     render() {
         const {clicky} = this.state;
-        const {value, dim} = this.props;
+        const {value, dim, xs, md, lg} = this.props;
         const {shipName, location, galaxy} = value;
         const {sector, quad} = location;
 
@@ -72,7 +72,7 @@ class Galaxy extends Component {
         }
 
         return (
-            <Panel panelName="galaxy" dim={dim} double={true} xs="12" md="12" lg="6">
+            <Panel panelName="galaxy" dim={dim} double={true} xs={xs ? xs : "12"} md={md ? md : "12"} lg={lg ? lg :"6"}>
                 <h2>Chart of Known Galaxy</h2>
 
                 <table className="table__galaxy">

@@ -25,7 +25,7 @@ class Sector extends Component {
 
     render() {
         const {clicky} = this.state;
-        const {value, dim} = this.props;
+        const {value, dim, xs, md, lg} = this.props;
         const {sector, location} = value;
         const {quad} = location;
 
@@ -75,7 +75,7 @@ class Sector extends Component {
         }
 
         return (
-            <Panel panelName="sector" dim={dim} xs="12" md="6" lg="3">
+            <Panel panelName="sector" dim={dim} xs={xs ? xs : "12"} md={md ? md : "6"} lg={lg ? lg :"3"}>
                 <table className="table__sector">
                     <tbody>
                         {sectorRows}
