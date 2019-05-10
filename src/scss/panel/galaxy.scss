@@ -20,6 +20,7 @@
 				height: 20px;
 				text-align: center;
 				font-weight: bold;
+				border-radius: 2px;
 
 				&.td__galaxyCoord {
 					color: $galaxyCoord;
@@ -41,14 +42,12 @@
 					&.td__galaxyCell--clicky {
 						cursor: pointer;
 					}
+
+					&.td__galaxyCell--dest {
+						color: $galaxyCellDest-fg;
+						background-color: $galaxyCellDest-bg;
+					}
 				}
-			}
-
-			&.tr__galaxyheading {
-			}
-
-			&.tr__galaxycontent {
-				
 			}
 		}
 	}

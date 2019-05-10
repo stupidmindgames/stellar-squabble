@@ -3,7 +3,7 @@ import Panel from './Panel';
 
 class Viewer extends Component { 
   render() {
-    const {value, dim, xs, md, lg} = this.props;
+    const {dim, xs, md, lg} = this.props;
     // const {xxx} = value;
 
     return (

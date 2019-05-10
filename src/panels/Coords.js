@@ -3,7 +3,7 @@ import Panel from './Panel';
 
 class Coords extends Component { 
   render() {
-    const {value, dim, xs, md, lg} = this.props;
+    const {dim, xs, md, lg} = this.props;
     
     return (
         <Panel panelName="coords" dim={dim} xs={xs ? xs : "12"} md={md ? md : "6"} lg={lg ? lg :"3"}>

@@ -13,21 +13,21 @@ class Galaxy extends Component {
         }
     }        
     
-    handleClick(e) {
+    handleClick(x, y) {
         const {clicky} = this.state;
 
         if(clicky) {
             const {click} = this.props;
 
-            alert('arse');
+            click(x, y);
         }
     }
 
     render() {
         const {clicky} = this.state;
         const {value, dim, xs, md, lg} = this.props;
-        const {shipName, location, galaxy} = value;
-        const {sector, quad} = location;
+        const {shipName, location, galaxy, dest} = value;
+        const {sector} = location;
 
         let galaxyCells = [];
 
@@ -52,9 +52,15 @@ class Galaxy extends Component {
                 let currentSector = ( (i + 1) === location.sector.x && j === location.sector.y ) ? 
                     ' td__galaxyCell--current' : '';
                 let clickySector = clicky ? ' td__galaxyCell--clicky' : '';
+                let destSector = ( (i + 1) === dest.sector.x && j === dest.sector.y ) ? 
+                    ' td__galaxyCell--dest' : '';
 
                 cells.push(
-                    <td onClick={this.handleClick} className={'td__galaxyCell' + currentSector + clickySector} key={'galaxyCell_' + j}>
+                    <td
+                        onClick={() => { this.handleClick(i + 1, j); } }
+                        className={'td__galaxyCell' + currentSector + clickySector + destSector}
+                        key={'galaxyCell_' + j}
+                    >
                         <span className="span__galaxyCellStat">{cell.stars}</span>
                         <span className="span__galaxyCellStat">{cell.mongs}</span>
                         <span className="span__galaxyCellStat">{cell.bases}</span>

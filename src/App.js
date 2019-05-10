@@ -38,6 +38,16 @@ class App extends Component {
           y: 5,
         },
       },
+      dest : {
+        sector: {
+          x: null,
+          y: null,
+        },
+        quad: {
+          x: null,
+          y: null,
+        },
+      },
     };
 
     let game = {
@@ -223,7 +233,7 @@ class App extends Component {
           <Row>
             <Galaxy
               dim={dim.galaxy}
-              value={{galaxy: galaxy, location: player.location}}
+              value={{galaxy: galaxy, location: player.location, dest: player.dest}}
             />
 
             <Status
@@ -233,7 +243,7 @@ class App extends Component {
 
             <Sector
               dim={dim.sector}
-              value={{sector: sector, location: player.location}}
+              value={{sector: sector, location: player.location, dest: player.dest}}
             />
           </Row>
           

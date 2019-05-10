@@ -13,21 +13,22 @@ class Sector extends Component {
         }
     }        
     
-    handleClick(e) {
+    handleClick(x, y) {
         const {clicky} = this.state;
 
         if(clicky) {
             const {click} = this.props;
 
-            alert('arse');
+            click(x, y);
         }
     }
 
     render() {
         const {clicky} = this.state;
         const {value, dim, xs, md, lg} = this.props;
-        const {sector, location} = value;
+        const {sector, location, dest} = value;
         const {quad} = location;
+        const destQuad = dest.quad;
 
         let clickyCell = clicky ? ' td__sectorCell--clicky' : '';
         let sectorCells = [];
@@ -52,16 +53,24 @@ class Sector extends Component {
             for(let j = 1; j <= 8; j++) {
                 if((i + 1) === quad.x && j === quad.y) {
                     cells.push(
-                        <td onClick={this.handleClick} className={'td__sectorCell td__sectorCell--current' + clickyCell} key={'sectorCell_' + j}>
+                        <td onClick={ () => { this.handleClick(i +1, j); } } className={'td__sectorCell td__sectorCell--current' + clickyCell} key={'sectorCell_' + j}>
                             X
                         </td>
                     );
                 } else {
-                    cells.push(
-                        <td onClick={this.handleClick} className={'td__sectorCell' + clickyCell} key={'sectorCell_' + j}>
-                            {sector[i][j -1]}
-                        </td>
-                    );
+                    if((i + 1) === destQuad.x && j === destQuad.y) {
+                        cells.push(
+                            <td onClick={ () => { this.handleClick(i +1, j); } } className={'td__sectorCell td__sectorCell--dest' + clickyCell} key={'sectorCell_' + j}>
+                                X
+                            </td>
+                        );
+                    } else {
+                        cells.push(
+                            <td onClick={ () => { this.handleClick(i +1, j); } } className={'td__sectorCell' + clickyCell} key={'sectorCell_' + j}>
+                                {sector[i][j -1]}
+                            </td>
+                        );
+                    }
                 }
             }
 

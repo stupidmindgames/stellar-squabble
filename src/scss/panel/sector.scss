@@ -29,6 +29,11 @@
 					&.td__sectorCell--clicky {
 						cursor: pointer;
 					}
+
+					&.td__sectorCell--dest {
+						color: $sectorCellDest-fg;
+						background-color: $sectorCellDest-bg;
+					}
 				}
 			}
 
