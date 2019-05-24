@@ -162,12 +162,46 @@ class App extends Component {
     }
   }
 
-  handleMoveQuad(quadCoords) {
-    alert(quadCoords);
+  handleMoveQuad(dest) {
+    let {player} = this.state;
+    player.location = dest;
+    player.dest = {
+      sector: {
+        x: null,
+        y: null,
+      },
+      quad: {
+        x: null,
+        y: null,
+      },
+    };
+
+    this.setState({
+      player: player,
+      commandPanelShow: false,
+      selectedCommandComponent: null,
+    });
   }
 
-  handleMoveSector(sectorCoords) {
-    alert(sectorCoords);
+  handleMoveSector(dest) {
+    let {player} = this.state;
+    player.location = dest;
+    player.dest = {
+      sector: {
+        x: null,
+        y: null,
+      },
+      quad: {
+        x: null,
+        y: null,
+      },
+    };
+    
+    this.setState({
+      player: player,
+      commandPanelShow: false,
+      selectedCommandComponent: null,
+    });
   }
 
   handleCommandPanelClick() {

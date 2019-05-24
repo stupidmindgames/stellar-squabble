@@ -53,7 +53,7 @@ class MoveQuad extends Component {
                     <Coords xs="12" md="6" lg="6" />
                 </Row>
 
-                <Button onClick={action}>Move</Button>
+                <Button onClick={() => {action(dest); }}>Move</Button>
             </div>
         );
     }
