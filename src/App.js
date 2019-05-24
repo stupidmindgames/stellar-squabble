@@ -19,6 +19,7 @@ class App extends Component {
 
     this.handleCommandPanelClick = this.handleCommandPanelClick.bind(this);
     this.handleCommandPanelClose = this.handleCommandPanelClose.bind(this);
+    this.selectCommand = this.selectCommand.bind(this);
     this.handleMoveQuad = this.handleMoveQuad.bind(this);
     this.handleMoveSector = this.handleMoveSector.bind(this);
     
@@ -181,6 +182,12 @@ class App extends Component {
     });
   }
 
+  selectCommand(commandComponent) {
+    this.setState({
+        selectedCommandComponent: commandComponent,
+    });
+  }
+
   dimPanels(panels, dimness) {
     const {dim} = this.state;
     let newDim = [];
@@ -211,7 +218,7 @@ class App extends Component {
 
   render() {
     // it seems mental doing it like this now, but bear with me
-    const {game, player, dim} = this.state;
+    const {game, player, dim, selectedCommandComponent} = this.state;
     const {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
 
     const commandComponents = [
@@ -285,6 +292,8 @@ class App extends Component {
 
         <CommandPanel
           commands={commandComponents}
+          selectCommand={this.selectCommand}
+          selectedCommandComponent={selectedCommandComponent}
           show={this.state.commandPanelShow}
           close={this.handleCommandPanelClose}
         />

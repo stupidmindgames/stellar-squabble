@@ -51,22 +51,22 @@ class Sector extends Component {
             let cells = [];
 
             for(let j = 1; j <= 8; j++) {
-                if((i + 1) === quad.x && j === quad.y) {
+                if(j === quad.x && (i + 1) === quad.y) {
                     cells.push(
-                        <td onClick={ () => { this.handleClick(i +1, j); } } className={'td__sectorCell td__sectorCell--current' + clickyCell} key={'sectorCell_' + j}>
+                        <td onClick={ () => { this.handleClick(j, i + 1); } } className={'td__sectorCell td__sectorCell--current' + clickyCell} key={'sectorCell_' + j}>
                             X
                         </td>
                     );
                 } else {
-                    if((i + 1) === destQuad.x && j === destQuad.y) {
+                    if(j === destQuad.x && (i + 1) === destQuad.y) {
                         cells.push(
-                            <td onClick={ () => { this.handleClick(i +1, j); } } className={'td__sectorCell td__sectorCell--dest' + clickyCell} key={'sectorCell_' + j}>
+                            <td onClick={ () => { this.handleClick(j, i + 1); } } className={'td__sectorCell td__sectorCell--dest' + clickyCell} key={'sectorCell_' + j}>
                                 X
                             </td>
                         );
                     } else {
                         cells.push(
-                            <td onClick={ () => { this.handleClick(i +1, j); } } className={'td__sectorCell' + clickyCell} key={'sectorCell_' + j}>
+                            <td onClick={ () => { this.handleClick(j, i + 1); } } className={'td__sectorCell' + clickyCell} key={'sectorCell_' + j}>
                                 {sector[i][j -1]}
                             </td>
                         );

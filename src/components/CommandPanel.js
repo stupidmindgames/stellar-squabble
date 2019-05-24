@@ -4,31 +4,14 @@ import Button from 'react-bootstrap/Button';
 import {Row, Col} from 'react-bootstrap';
 
 class CommandPanel extends Component {
-    constructor(props, context) {
-        super(props, context);
-    
-        this.selectCommand = this.selectCommand.bind(this);
-
-        this.state = {
-            selectedCommandComponent: null,
-        }
-    }
-
-    selectCommand(commandComponent) {
-        this.setState({
-            selectedCommandComponent: commandComponent,
-        });
-    }
-
     render() {
-        const {selectedCommandComponent} = this.state;
-        const {show, close, commands} = this.props;
+        const {selectCommand, selectedCommandComponent, show, close, commands} = this.props;
 
         const commandComponents = commands.map(
             (command, i) => {
                 return (
                     <li key={'command_' + i}>
-                        <Button onClick={() => {this.selectCommand(command.component)}}>
+                        <Button onClick={() => {selectCommand(command.component)}}>
                             {command.name}
                         </Button>
                     </li>
