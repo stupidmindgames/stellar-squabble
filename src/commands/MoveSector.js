@@ -59,6 +59,16 @@ class MoveSector extends Component {
         const {dest} = this.state;
         const {value, action} = this.props;
 
+        const moveButton = (<Button onClick={() => {action(dest); }}>Move</Button>);
+        const moveButtonInactive = (<Button disabled>Move</Button>);
+
+        const moveButtonRender = (
+            dest.sector.x !== null &&
+            dest.sector.y !== null &&
+            dest.quad.x !== null &&
+            dest.quad.y !== null
+        ) ? moveButton : moveButtonInactive;
+
         return (
             <div>
                 <h2>Move Within Galaxy</h2>
@@ -73,7 +83,7 @@ class MoveSector extends Component {
                     <Coords xs="12" md="6" lg="6" />
                 </Row>
 
-                <Button onClick={() => {action(dest); }}>Move</Button>
+                {moveButtonRender}
             </div>
         );
     }

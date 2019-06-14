@@ -22,6 +22,7 @@ class App extends Component {
     this.selectCommand = this.selectCommand.bind(this);
     this.handleMoveQuad = this.handleMoveQuad.bind(this);
     this.handleMoveSector = this.handleMoveSector.bind(this);
+    this.travelling = this.travelling.bind(this);
     
     this.dimPanels = this.dimPanels.bind(this);
     this.dimAll = this.dimAll.bind(this);
@@ -176,15 +177,25 @@ class App extends Component {
       },
     };
 
-    this.setState({
-      player: player,
-      commandPanelShow: false,
-      selectedCommandComponent: null,
-    });
+    const result = () => {
+        this.setState({
+        player: player,
+        commandPanelShow: false,
+        selectedCommandComponent: null,
+      });
+    };
+
+    this.travelling(1, result);
   }
 
   handleMoveSector(dest) {
     let {player} = this.state;
+    const {location} = player;
+    const distance = Math.sqrt(
+      Math.pow(location.sector.x - dest.sector.x, 2) +
+      Math.pow(location.sector.y - dest.sector.y, 2)
+    );
+
     player.location = dest;
     player.dest = {
       sector: {
@@ -197,11 +208,15 @@ class App extends Component {
       },
     };
     
-    this.setState({
-      player: player,
-      commandPanelShow: false,
-      selectedCommandComponent: null,
-    });
+    const result = () => {
+      this.setState({
+        player: player,
+        commandPanelShow: false,
+        selectedCommandComponent: null,
+      });
+    };
+
+    this.travelling(distance, result);
   }
 
   handleCommandPanelClick() {
@@ -220,6 +235,15 @@ class App extends Component {
     this.setState({
         selectedCommandComponent: commandComponent,
     });
+  }
+
+  travelling(duration, result) {
+    const {game} = this.state;
+    const travelTime = (10 - parseFloat(game.status.warp)) * duration / 10;
+
+    alert('Travelling for ' + travelTime + ' seconds');
+
+    result();
   }
 
   dimPanels(panels, dimness) {
