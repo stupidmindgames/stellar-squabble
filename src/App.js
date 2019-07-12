@@ -23,6 +23,7 @@ class App extends Component {
     this.handleMoveQuad = this.handleMoveQuad.bind(this);
     this.handleMoveSector = this.handleMoveSector.bind(this);
     this.travelling = this.travelling.bind(this);
+    this.setTravelling = this.setTravelling.bind(this);
     
     this.dimPanels = this.dimPanels.bind(this);
     this.dimAll = this.dimAll.bind(this);
@@ -50,6 +51,7 @@ class App extends Component {
           y: null,
         },
       },
+      travellling: false,
     };
 
     let game = {
@@ -241,9 +243,23 @@ class App extends Component {
     const {game} = this.state;
     const travelTime = (10 - parseFloat(game.status.warp)) * duration / 10;
 
-    alert('Travelling for ' + travelTime + ' seconds');
+    this.handleCommandPanelClose();
+    this.dimAll(true, ['viewer']);
+    this.setTravelling(true);
 
-    result();
+    setTimeout( () => {
+      this.dimAll(false);
+      this.setTravelling(false);
+  
+      result();  
+    }, travelTime * 1000);
+  }
+
+  setTravelling(travellingness) {
+    let {player} = this.state;
+    player.travellling = travellingness;
+
+    this.setState({player});
   }
 
   dimPanels(panels, dimness) {
@@ -259,8 +275,8 @@ class App extends Component {
     });
   }
 
-  dimAll(dimness) {
-    let panels = [
+  dimAll(dimness, except = []) {
+    const panels = [
       'badge',
       'commands',
       'galaxy',
@@ -271,7 +287,15 @@ class App extends Component {
       'viewer',
     ];
 
-    this.dimPanels(panels, dimness);
+    if(except.length === 0) {
+      this.dimPanels(panels, dimness);
+    } else {
+      const dimPanels = panels.filter( (panel) => {
+        return (except.indexOf(panel) === -1);
+      });
+  
+      this.dimPanels(dimPanels, dimness);
+    }
   }
 
   render() {
@@ -321,6 +345,7 @@ class App extends Component {
             <Col className="unit unit--tall" xs="12" md="12" lg="6">
               <Row>
                 <Viewer
+                  travelling={player.travellling}
                   dim={dim.viewer}
                   value={viewer}
                 />
