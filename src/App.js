@@ -24,7 +24,10 @@ class App extends Component {
     this.handleMoveSector = this.handleMoveSector.bind(this);
     this.travelling = this.travelling.bind(this);
     this.setTravelling = this.setTravelling.bind(this);
-    
+    this.setEnergy = this.setEnergy.bind(this);
+    this.setStardate = this.setStardate.bind(this);
+    this.addMessage = this.addMessage.bind(this);
+
     this.dimPanels = this.dimPanels.bind(this);
     this.dimAll = this.dimAll.bind(this);
 
@@ -92,27 +95,27 @@ class App extends Component {
       },
       sector: [],
       status: {
-        date: 3500.0,
+        stardate: 3500.0,
         status: 'alert',
         statusColour: 'red',
         statusText: (<span>&raquo;&raquo; Alert &laquo;&laquo;</span>),
-        energy: 80,
-        shields: 65,
+        energy: 100,
+        shields: 100,
         torps: 9,
         warp: 1.0,
         mongols: 23,
       },
       systems: {
-        energy: 50,
-        shields: 77,
-        lifeSupport: 47,
-        lasers: 89,
-        torps: 12,
-        warp: 34,
-        impulse: 53,
-        shortRange: 87,
+        energy: 100,
+        shields: 100,
+        lifeSupport: 100,
+        lasers: 100,
+        torps: 100,
+        warp: 100,
+        impulse: 100,
+        shortRange: 100,
         longRange: 100,
-        computer: 39,
+        computer: 100,
       },
       viewer: {
       },
@@ -239,17 +242,22 @@ class App extends Component {
     });
   }
 
-  travelling(duration, result) {
-    const {game} = this.state;
-    const travelTime = (10 - parseFloat(game.status.warp)) * duration / 10;
+  travelling(distance, result) {
+    const {game} = this.state, warp = parseFloat(game.status.warp);
+    const travelTime = ((10 - warp) * distance / 10).toFixed(1);
 
     this.handleCommandPanelClose();
     this.dimAll(true, ['viewer']);
     this.setTravelling(true);
 
     setTimeout( () => {
+      const energyUsed = distance * warp * -1;
+      
       this.dimAll(false);
       this.setTravelling(false);
+      this.setEnergy(energyUsed);
+      this.setStardate(travelTime);
+      this.addMessage('Energy used: ' + (0 - energyUsed) + ', duration: ' + travelTime);
   
       result();  
     }, travelTime * 1000);
@@ -260,6 +268,30 @@ class App extends Component {
     player.travellling = travellingness;
 
     this.setState({player});
+  }
+
+  setEnergy(change = 0) {
+    let {game} = this.state;
+    game.status.energy = parseInt(game.status.energy) + parseInt(change);
+
+    if(game.status.energy > 100) {
+      game.status.energy = 100;
+    } else if (game.status.energy < 0) {
+      game.status.energy = 0;
+    }
+
+    this.setState({game})
+  }
+
+  setStardate(duration = 0) {
+    let {game} = this.state;
+    game.status.stardate = parseFloat(game.status.stardate) + parseFloat(duration);
+    
+    this.setState({game})
+  }
+
+  addMessage(text) {
+    console.log(text)
   }
 
   dimPanels(panels, dimness) {
