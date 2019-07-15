@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Panel from './Panel';
+import Travelling from '../assets/img/travelling.gif';
 
 class Viewer extends Component { 
   render() {
@@ -9,7 +10,7 @@ class Viewer extends Component {
     const viewer = travelling ? (
       <div className="block__viewScreen">
           
-        <img src="/img/travelling.gif" alt="Moving starfield..." className="img__travelling" />
+        <img src={Travelling} alt="Moving starfield..." className="img__travelling" />
       
       </div>
     ) : (

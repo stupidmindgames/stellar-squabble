@@ -12,6 +12,7 @@ import Badge from './panels/Badge.js';
 import CommandPanel from './components/CommandPanel.js';
 import MoveQuad from './commands/MoveQuad.js';
 import MoveSector from './commands/MoveSector.js';
+import ShipBadge from './assets/img/badge.png';
 
 class App extends Component {
   constructor(props, context) {
@@ -61,7 +62,7 @@ class App extends Component {
       badge: {
         shipName : 'USS Lexington',
         shipReg: 'RCB-92',
-        badge: 'img/badge.png',
+        badge: ShipBadge,
         dept: 'Dept. of Space',
       },
       commands: {
