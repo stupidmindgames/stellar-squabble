@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/stellar-squabble/precache-manifest.33dfa1a22c7d95917378a60fe263898b.js"
+  "/stellar-squabble/precache-manifest.970746168a31f476553628320abccf43.js"
 );
 
 workbox.clientsClaim();

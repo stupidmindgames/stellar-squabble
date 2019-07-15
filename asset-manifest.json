@@ -1,13 +1,16 @@
 {
-  "main.css": "/stellar-squabble/static/css/main.efbe05bd.chunk.css",
-  "main.js": "/stellar-squabble/static/js/main.d4d74efc.chunk.js",
-  "main.js.map": "/stellar-squabble/static/js/main.d4d74efc.chunk.js.map",
+  "main.css": "/stellar-squabble/static/css/main.f2ac36ca.chunk.css",
+  "main.js": "/stellar-squabble/static/js/main.5a9d7abf.chunk.js",
+  "main.js.map": "/stellar-squabble/static/js/main.5a9d7abf.chunk.js.map",
   "runtime~main.js": "/stellar-squabble/static/js/runtime~main.d1450d4f.js",
   "runtime~main.js.map": "/stellar-squabble/static/js/runtime~main.d1450d4f.js.map",
-  "static/js/2.3da928e8.chunk.js": "/stellar-squabble/static/js/2.3da928e8.chunk.js",
-  "static/js/2.3da928e8.chunk.js.map": "/stellar-squabble/static/js/2.3da928e8.chunk.js.map",
+  "static/js/2.c0bf519a.chunk.js": "/stellar-squabble/static/js/2.c0bf519a.chunk.js",
+  "static/js/2.c0bf519a.chunk.js.map": "/stellar-squabble/static/js/2.c0bf519a.chunk.js.map",
   "index.html": "/stellar-squabble/index.html",
-  "precache-manifest.33dfa1a22c7d95917378a60fe263898b.js": "/stellar-squabble/precache-manifest.33dfa1a22c7d95917378a60fe263898b.js",
+  "precache-manifest.970746168a31f476553628320abccf43.js": "/stellar-squabble/precache-manifest.970746168a31f476553628320abccf43.js",
   "service-worker.js": "/stellar-squabble/service-worker.js",
-  "static/css/main.efbe05bd.chunk.css.map": "/stellar-squabble/static/css/main.efbe05bd.chunk.css.map"
+  "static/css/main.f2ac36ca.chunk.css.map": "/stellar-squabble/static/css/main.f2ac36ca.chunk.css.map",
+  "static/media/badge.png": "/stellar-squabble/static/media/badge.b67b38a9.png",
+  "static/media/style.scss": "/stellar-squabble/static/media/starfield.058d6d3e.png",
+  "static/media/travelling.gif": "/stellar-squabble/static/media/travelling.304e02a4.gif"
 }
