@@ -12,7 +12,8 @@ import Badge from './panels/Badge.js';
 import CommandPanel from './components/CommandPanel.js';
 import MoveQuad from './commands/MoveQuad.js';
 import MoveSector from './commands/MoveSector.js';
-import ShipBadge from './assets/img/badge.png';
+import Player from './init/Player';
+import Game from './init/Game';
 
 class App extends Component {
 	constructor(props, context) {
@@ -32,139 +33,19 @@ class App extends Component {
 		this.dimPanels = this.dimPanels.bind(this);
 		this.dimAll = this.dimAll.bind(this);
 
-		// this will eventually be the default state
-		// and commands will update it
-		let player = {
-			location: {
-				sector: {
-					x: 6,
-					y: 3,
-				},
-				quad: {
-					x: 3,
-					y: 5,
-				},
-			},
-			dest: {
-				sector: {
-					x: null,
-					y: null,
-				},
-				quad: {
-					x: null,
-					y: null,
-				},
-			},
-			travellling: false,
-		};
-
-		let game = {
-			badge: {
-				shipName: 'USS Lexington',
-				shipReg: 'RCB-92',
-				badge: ShipBadge,
-				dept: 'Dept. of Space',
-			},
-			commands: {
-				eff: 50,
-				temp: 0,
-			},
-			galaxy: [],
-			messages: {
-				messagesData: [
-					{
-						dept: 'Science',
-						date: '3560.2',
-						mesg: 'Scanners show no enemy ships in this quadrant.',
-					},
-					{
-						dept: 'Damage',
-						date: '3564.1',
-						mesg: 'Energy Converter failing, now at 56%',
-					},
-					{
-						dept: 'Communications',
-						date: '3564.2',
-						mesg: 'The Starbase in 6-6 reports it is under attack. They can last until 3568.3.',
-					},
-					{
-						dept: 'Tactical',
-						date: '3565.6',
-						mesg: 'There are Mongols off the starboard bow, starboard bow, starboard bow',
-					},
-				],
-			},
-			sector: [],
-			status: {
-				stardate: 3500.0,
-				status: 'alert',
-				statusColour: 'red',
-				statusText: (<span>&raquo;&raquo; Alert &laquo;&laquo;</span>),
-				energy: 100,
-				shields: 100,
-				torps: 9,
-				warp: 1.0,
-				mongols: 23,
-			},
-			systems: {
-				energy: 100,
-				shields: 100,
-				lifeSupport: 100,
-				lasers: 100,
-				torps: 100,
-				warp: 100,
-				impulse: 100,
-				shortRange: 100,
-				longRange: 100,
-				computer: 100,
-			},
-			viewer: {
-			},
-		}
-
-		for (let i = 0; i < 8; i++) {
-			let cells = [];
-
-			for (let j = 0; j < 8; j++) {
-				let cell = {
-					stars: 0,
-					mongs: 0,
-					bases: 0,
-				};
-
-				cells.push(cell);
-			}
-
-			game.galaxy.push(cells);
-		}
-
-		for (let i = 0; i < 8; i++) {
-			let cells = [];
-
-			for (let j = 0; j < 8; j++) {
-				let cell = '.';
-
-				cells.push(cell);
-			}
-
-			game.sector.push(cells);
-		}
-
-		let dim = {
-			badge: false,
-			commands: false,
-			galaxy: false,
-			messages: false,
-			sector: false,
-			status: false,
-			systems: false,
-			viewer: false,
-		}
-
 		this.state = {
-			dim: dim,
-			game: game,
-			player: player,
+			dim: {
+				badge: false,
+				commands: false,
+				galaxy: false,
+				messages: false,
+				sector: false,
+				status: false,
+				systems: false,
+				viewer: false,
+			},
+			game: Game,
+			player: Player,
 			commandPanelShow: true,
 		}
 	}

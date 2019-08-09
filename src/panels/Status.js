@@ -18,7 +18,7 @@ class Status extends Component {
 
 				<div className={'block__statusPanel block__statusPanel--' + status +
 					'block__statusPanel--' + statusColour}>
-					{statusText}
+					<span>{statusText}</span>
 				</div>
 
 				<div className="block__gauge block__gauge--energy">
