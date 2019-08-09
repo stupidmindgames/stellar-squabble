@@ -2,95 +2,95 @@ import React, { Component } from 'react';
 import Panel from './Panel';
 
 class Galaxy extends Component {
-    constructor(props, context) {
-        super(props, context);
-        const {click} = this.props;
-    
-        this.handleClick = this.handleClick.bind(this);
+	constructor(props, context) {
+		super(props, context);
+		const { click } = this.props;
 
-        this.state = {
-            clicky : ! (click === undefined || click === null),
-        }
-    }        
-    
-    handleClick(x, y) {
-        const {clicky} = this.state;
+		this.handleClick = this.handleClick.bind(this);
 
-        if(clicky) {
-            const {click} = this.props;
+		this.state = {
+			clicky: !(click === undefined || click === null),
+		}
+	}
 
-            click(x, y);
-        }
-    }
+	handleClick(x, y) {
+		const { clicky } = this.state;
 
-    render() {
-        const {clicky} = this.state;
-        const {value, dim, xs, md, lg} = this.props;
-        const {shipName, location, galaxy, dest} = value;
-        const {sector} = location;
+		if (clicky) {
+			const { click } = this.props;
 
-        let galaxyCells = [];
+			click(x, y);
+		}
+	}
 
-        for(let j = 1; j <= 8; j++) {
-            galaxyCells.push(<td className="td__galaxyCoord" key={'galaxyCell_' + j}>{j}</td>);
-        }
+	render() {
+		const { clicky } = this.state;
+		const { value, dim, xs, md, lg } = this.props;
+		const { shipName, location, galaxy, dest } = value;
+		const { sector } = location;
 
-        let galaxyRows = [
-            <tr className="tr__galaxyheading" key={'galaxyRow_0'}>
-                <td key={'galaxyCell_0'}>&nbsp;</td>
-                
-                {galaxyCells}
-            </tr>,
-        ];
+		let galaxyCells = [];
 
-        for(let i = 0; i < 8; i++) {
-            let cells = [];
+		for (let j = 1; j <= 8; j++) {
+			galaxyCells.push(<td className="td__galaxyCoord" key={'galaxyCell_' + j}>{j}</td>);
+		}
 
-            for(let j = 1; j <= 8; j++) {
-                let cell = galaxy[i][j-1];
+		let galaxyRows = [
+			<tr className="tr__galaxyheading" key={'galaxyRow_0'}>
+				<td key={'galaxyCell_0'}>&nbsp;</td>
 
-                let currentSector = ( (i + 1) === location.sector.x && j === location.sector.y ) ? 
-                    ' td__galaxyCell--current' : '';
-                let clickySector = clicky ? ' td__galaxyCell--clicky' : '';
-                let destSector = ( (i + 1) === dest.sector.x && j === dest.sector.y ) ? 
-                    ' td__galaxyCell--dest' : '';
+				{galaxyCells}
+			</tr>,
+		];
 
-                cells.push(
-                    <td
-                        onClick={() => { this.handleClick(i + 1, j); } }
-                        className={'td__galaxyCell' + currentSector + clickySector + destSector}
-                        key={'galaxyCell_' + j}
-                    >
-                        <span className="span__galaxyCellStat">{cell.stars}</span>
-                        <span className="span__galaxyCellStat">{cell.mongs}</span>
-                        <span className="span__galaxyCellStat">{cell.bases}</span>
-                    </td>
-                );
-            }
+		for (let i = 0; i < 8; i++) {
+			let cells = [];
 
-            galaxyRows.push(
-                <tr className="tr__galaxycontent" key={'galaxyRow_' + (i + 1)}>
-                    <td className="td__galaxyCoord" key={'galaxyRow_0'}>{i + 1}</td>
+			for (let j = 1; j <= 8; j++) {
+				let cell = galaxy[i][j - 1];
 
-                    {cells}
-                </tr>
-            );
-        }
+				let currentSector = ((i + 1) === location.sector.x && j === location.sector.y) ?
+					' td__galaxyCell--current' : '';
+				let clickySector = clicky ? ' td__galaxyCell--clicky' : '';
+				let destSector = ((i + 1) === dest.sector.x && j === dest.sector.y) ?
+					' td__galaxyCell--dest' : '';
 
-        return (
-            <Panel panelName="galaxy" dim={dim} double={true} xs={xs ? xs : "12"} md={md ? md : "12"} lg={lg ? lg :"6"}>
-                <h2>Chart of Known Galaxy</h2>
+				cells.push(
+					<td
+						onClick={() => { this.handleClick(i + 1, j); }}
+						className={'td__galaxyCell' + currentSector + clickySector + destSector}
+						key={'galaxyCell_' + j}
+					>
+						<span className="span__galaxyCellStat">{cell.stars}</span>
+						<span className="span__galaxyCellStat">{cell.mongs}</span>
+						<span className="span__galaxyCellStat">{cell.bases}</span>
+					</td>
+				);
+			}
 
-                <table className="table__galaxy">
-                    <tbody>
-                        {galaxyRows}
-                    </tbody>
-                </table>
+			galaxyRows.push(
+				<tr className="tr__galaxycontent" key={'galaxyRow_' + (i + 1)}>
+					<td className="td__galaxyCoord" key={'galaxyRow_0'}>{i + 1}</td>
 
-                <p>{shipName} in quad {sector.x}-{sector.y}</p>
-            </Panel>
-        );
-    }
+					{cells}
+				</tr>
+			);
+		}
+
+		return (
+			<Panel panelName="galaxy" dim={dim} double={true} xs={xs ? xs : "12"} md={md ? md : "12"} lg={lg ? lg : "6"}>
+				<h2>Chart of Known Galaxy</h2>
+
+				<table className="table__galaxy">
+					<tbody>
+						{galaxyRows}
+					</tbody>
+				</table>
+
+				<p>{shipName} in quad {sector.x}-{sector.y}</p>
+			</Panel>
+		);
+	}
 }
 
 export default Galaxy;

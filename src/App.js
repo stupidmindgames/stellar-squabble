@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './scss/style.scss';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Status from './panels/Status.js';
 import Sector from './panels/Sector.js';
 import Galaxy from './panels/Galaxy.js';
@@ -15,407 +15,407 @@ import MoveSector from './commands/MoveSector.js';
 import ShipBadge from './assets/img/badge.png';
 
 class App extends Component {
-  constructor(props, context) {
-    super(props, context);
+	constructor(props, context) {
+		super(props, context);
 
-    this.handleCommandPanelClick = this.handleCommandPanelClick.bind(this);
-    this.handleCommandPanelClose = this.handleCommandPanelClose.bind(this);
-    this.selectCommand = this.selectCommand.bind(this);
-    this.handleMoveQuad = this.handleMoveQuad.bind(this);
-    this.handleMoveSector = this.handleMoveSector.bind(this);
-    this.travelling = this.travelling.bind(this);
-    this.setTravelling = this.setTravelling.bind(this);
-    this.setEnergy = this.setEnergy.bind(this);
-    this.setStardate = this.setStardate.bind(this);
-    this.addMessage = this.addMessage.bind(this);
+		this.handleCommandPanelClick = this.handleCommandPanelClick.bind(this);
+		this.handleCommandPanelClose = this.handleCommandPanelClose.bind(this);
+		this.selectCommand = this.selectCommand.bind(this);
+		this.handleMoveQuad = this.handleMoveQuad.bind(this);
+		this.handleMoveSector = this.handleMoveSector.bind(this);
+		this.travelling = this.travelling.bind(this);
+		this.setTravelling = this.setTravelling.bind(this);
+		this.setEnergy = this.setEnergy.bind(this);
+		this.setStardate = this.setStardate.bind(this);
+		this.addMessage = this.addMessage.bind(this);
 
-    this.dimPanels = this.dimPanels.bind(this);
-    this.dimAll = this.dimAll.bind(this);
+		this.dimPanels = this.dimPanels.bind(this);
+		this.dimAll = this.dimAll.bind(this);
 
-    // this will eventually be the default state
-    // and commands will update it
-    let player = {
-      location : {
-        sector: {
-          x: 6,
-          y: 3,
-        },
-        quad: {
-          x: 3,
-          y: 5,
-        },
-      },
-      dest : {
-        sector: {
-          x: null,
-          y: null,
-        },
-        quad: {
-          x: null,
-          y: null,
-        },
-      },
-      travellling: false,
-    };
+		// this will eventually be the default state
+		// and commands will update it
+		let player = {
+			location: {
+				sector: {
+					x: 6,
+					y: 3,
+				},
+				quad: {
+					x: 3,
+					y: 5,
+				},
+			},
+			dest: {
+				sector: {
+					x: null,
+					y: null,
+				},
+				quad: {
+					x: null,
+					y: null,
+				},
+			},
+			travellling: false,
+		};
 
-    let game = {
-      badge: {
-        shipName : 'USS Lexington',
-        shipReg: 'RCB-92',
-        badge: ShipBadge,
-        dept: 'Dept. of Space',
-      },
-      commands: {
-        eff: 50,
-        temp: 0,
-      },
-      galaxy: [],
-      messages: {
-        messagesData: [
-          {
-            dept: 'Science',
-            date: '3560.2',
-            mesg: 'Scanners show no enemy ships in this quadrant.',
-          },
-          {
-            dept: 'Damage',
-            date: '3564.1',
-            mesg: 'Energy Converter failing, now at 56%',
-          },
-          {
-            dept: 'Communications',
-            date: '3564.2',
-            mesg: 'The Starbase in 6-6 reports it is under attack. They can last until 3568.3.',
-          },
-          {
-            dept: 'Tactical',
-            date: '3565.6',
-            mesg: 'There are Mongols off the starboard bow, starboard bow, starboard bow',
-          },
-        ],
-      },
-      sector: [],
-      status: {
-        stardate: 3500.0,
-        status: 'alert',
-        statusColour: 'red',
-        statusText: (<span>&raquo;&raquo; Alert &laquo;&laquo;</span>),
-        energy: 100,
-        shields: 100,
-        torps: 9,
-        warp: 1.0,
-        mongols: 23,
-      },
-      systems: {
-        energy: 100,
-        shields: 100,
-        lifeSupport: 100,
-        lasers: 100,
-        torps: 100,
-        warp: 100,
-        impulse: 100,
-        shortRange: 100,
-        longRange: 100,
-        computer: 100,
-      },
-      viewer: {
-      },
-    }
+		let game = {
+			badge: {
+				shipName: 'USS Lexington',
+				shipReg: 'RCB-92',
+				badge: ShipBadge,
+				dept: 'Dept. of Space',
+			},
+			commands: {
+				eff: 50,
+				temp: 0,
+			},
+			galaxy: [],
+			messages: {
+				messagesData: [
+					{
+						dept: 'Science',
+						date: '3560.2',
+						mesg: 'Scanners show no enemy ships in this quadrant.',
+					},
+					{
+						dept: 'Damage',
+						date: '3564.1',
+						mesg: 'Energy Converter failing, now at 56%',
+					},
+					{
+						dept: 'Communications',
+						date: '3564.2',
+						mesg: 'The Starbase in 6-6 reports it is under attack. They can last until 3568.3.',
+					},
+					{
+						dept: 'Tactical',
+						date: '3565.6',
+						mesg: 'There are Mongols off the starboard bow, starboard bow, starboard bow',
+					},
+				],
+			},
+			sector: [],
+			status: {
+				stardate: 3500.0,
+				status: 'alert',
+				statusColour: 'red',
+				statusText: (<span>&raquo;&raquo; Alert &laquo;&laquo;</span>),
+				energy: 100,
+				shields: 100,
+				torps: 9,
+				warp: 1.0,
+				mongols: 23,
+			},
+			systems: {
+				energy: 100,
+				shields: 100,
+				lifeSupport: 100,
+				lasers: 100,
+				torps: 100,
+				warp: 100,
+				impulse: 100,
+				shortRange: 100,
+				longRange: 100,
+				computer: 100,
+			},
+			viewer: {
+			},
+		}
 
-    for(let i = 0; i < 8; i++) {
-      let cells = [];
+		for (let i = 0; i < 8; i++) {
+			let cells = [];
 
-      for(let j = 0; j < 8; j++) {
-        let cell = {
-          stars: 0,
-          mongs: 0,
-          bases: 0,
-        };
+			for (let j = 0; j < 8; j++) {
+				let cell = {
+					stars: 0,
+					mongs: 0,
+					bases: 0,
+				};
 
-        cells.push(cell);
-      }
+				cells.push(cell);
+			}
 
-      game.galaxy.push(cells);
-    }
+			game.galaxy.push(cells);
+		}
 
-    for(let i = 0; i < 8; i++) {
-      let cells = [];
+		for (let i = 0; i < 8; i++) {
+			let cells = [];
 
-      for(let j = 0; j < 8; j++) {
-        let cell = '.';
+			for (let j = 0; j < 8; j++) {
+				let cell = '.';
 
-        cells.push(cell);
-      }
+				cells.push(cell);
+			}
 
-      game.sector.push(cells);
-    }
+			game.sector.push(cells);
+		}
 
-    let dim = {
-      badge: false,
-      commands: false,
-      galaxy: false,
-      messages: false,
-      sector: false,
-      status: false,
-      systems: false,
-      viewer: false,
-    }
+		let dim = {
+			badge: false,
+			commands: false,
+			galaxy: false,
+			messages: false,
+			sector: false,
+			status: false,
+			systems: false,
+			viewer: false,
+		}
 
-    this.state = {
-      dim: dim,
-      game: game,
-      player: player,
-      commandPanelShow: true,
-    }
-  }
+		this.state = {
+			dim: dim,
+			game: game,
+			player: player,
+			commandPanelShow: true,
+		}
+	}
 
-  handleMoveQuad(dest) {
-    let {player} = this.state;
-    player.location = dest;
-    player.dest = {
-      sector: {
-        x: null,
-        y: null,
-      },
-      quad: {
-        x: null,
-        y: null,
-      },
-    };
+	handleMoveQuad(dest) {
+		let { player } = this.state;
+		player.location = dest;
+		player.dest = {
+			sector: {
+				x: null,
+				y: null,
+			},
+			quad: {
+				x: null,
+				y: null,
+			},
+		};
 
-    const result = () => {
-        this.setState({
-        player: player,
-        commandPanelShow: false,
-        selectedCommandComponent: null,
-      });
-    };
+		const result = () => {
+			this.setState({
+				player: player,
+				commandPanelShow: false,
+				selectedCommandComponent: null,
+			});
+		};
 
-    this.travelling(1, result);
-  }
+		this.travelling(1, result);
+	}
 
-  handleMoveSector(dest) {
-    let {player} = this.state;
-    const {location} = player;
-    const distance = Math.sqrt(
-      Math.pow(location.sector.x - dest.sector.x, 2) +
-      Math.pow(location.sector.y - dest.sector.y, 2)
-    );
+	handleMoveSector(dest) {
+		let { player } = this.state;
+		const { location } = player;
+		const distance = Math.sqrt(
+			Math.pow(location.sector.x - dest.sector.x, 2) +
+			Math.pow(location.sector.y - dest.sector.y, 2)
+		);
 
-    player.location = dest;
-    player.dest = {
-      sector: {
-        x: null,
-        y: null,
-      },
-      quad: {
-        x: null,
-        y: null,
-      },
-    };
-    
-    const result = () => {
-      this.setState({
-        player: player,
-        commandPanelShow: false,
-        selectedCommandComponent: null,
-      });
-    };
+		player.location = dest;
+		player.dest = {
+			sector: {
+				x: null,
+				y: null,
+			},
+			quad: {
+				x: null,
+				y: null,
+			},
+		};
 
-    this.travelling(distance, result);
-  }
+		const result = () => {
+			this.setState({
+				player: player,
+				commandPanelShow: false,
+				selectedCommandComponent: null,
+			});
+		};
 
-  handleCommandPanelClick() {
-    this.setState({
-      commandPanelShow: true,
-    });
-  }
+		this.travelling(distance, result);
+	}
 
-  handleCommandPanelClose() {
-    this.setState({
-      commandPanelShow: false,
-    });
-  }
+	handleCommandPanelClick() {
+		this.setState({
+			commandPanelShow: true,
+		});
+	}
 
-  selectCommand(commandComponent) {
-    this.setState({
-        selectedCommandComponent: commandComponent,
-    });
-  }
+	handleCommandPanelClose() {
+		this.setState({
+			commandPanelShow: false,
+		});
+	}
 
-  travelling(distance, result) {
-    const {game} = this.state, warp = parseFloat(game.status.warp);
-    const travelTime = ((10 - warp) * distance / 10).toFixed(1);
+	selectCommand(commandComponent) {
+		this.setState({
+			selectedCommandComponent: commandComponent,
+		});
+	}
 
-    this.handleCommandPanelClose();
-    this.dimAll(true, ['viewer']);
-    this.setTravelling(true);
+	travelling(distance, result) {
+		const { game } = this.state, warp = parseFloat(game.status.warp);
+		const travelTime = ((10 - warp) * distance / 10).toFixed(1);
 
-    setTimeout( () => {
-      const energyUsed = distance * warp * -1;
-      
-      this.dimAll(false);
-      this.setTravelling(false);
-      this.setEnergy(energyUsed);
-      this.setStardate(travelTime);
-      this.addMessage('Energy used: ' + (0 - energyUsed) + ', duration: ' + travelTime);
-  
-      result();  
-    }, travelTime * 1000);
-  }
+		this.handleCommandPanelClose();
+		this.dimAll(true, ['viewer']);
+		this.setTravelling(true);
 
-  setTravelling(travellingness) {
-    let {player} = this.state;
-    player.travellling = travellingness;
+		setTimeout(() => {
+			const energyUsed = distance * warp * -1;
 
-    this.setState({player});
-  }
+			this.dimAll(false);
+			this.setTravelling(false);
+			this.setEnergy(energyUsed);
+			this.setStardate(travelTime);
+			this.addMessage('Energy used: ' + (0 - energyUsed) + ', duration: ' + travelTime);
 
-  setEnergy(change = 0) {
-    let {game} = this.state;
-    game.status.energy = parseInt(game.status.energy) + parseInt(change);
+			result();
+		}, travelTime * 1000);
+	}
 
-    if(game.status.energy > 100) {
-      game.status.energy = 100;
-    } else if (game.status.energy < 0) {
-      game.status.energy = 0;
-    }
+	setTravelling(travellingness) {
+		let { player } = this.state;
+		player.travellling = travellingness;
 
-    this.setState({game})
-  }
+		this.setState({ player });
+	}
 
-  setStardate(duration = 0) {
-    let {game} = this.state;
-    game.status.stardate = parseFloat(game.status.stardate) + parseFloat(duration);
-    
-    this.setState({game})
-  }
+	setEnergy(change = 0) {
+		let { game } = this.state;
+		game.status.energy = parseInt(game.status.energy) + parseInt(change);
 
-  addMessage(text) {
-    console.log(text)
-  }
+		if (game.status.energy > 100) {
+			game.status.energy = 100;
+		} else if (game.status.energy < 0) {
+			game.status.energy = 0;
+		}
 
-  dimPanels(panels, dimness) {
-    const {dim} = this.state;
-    let newDim = [];
+		this.setState({ game })
+	}
 
-    for(let panel of panels) {
-      newDim[panel] = dimness;
-    }
+	setStardate(duration = 0) {
+		let { game } = this.state;
+		game.status.stardate = parseFloat(game.status.stardate) + parseFloat(duration);
 
-    this.setState({
-      dim: {...dim, ...newDim},
-    });
-  }
+		this.setState({ game })
+	}
 
-  dimAll(dimness, except = []) {
-    const panels = [
-      'badge',
-      'commands',
-      'galaxy',
-      'messages',
-      'sector',
-      'status',
-      'systems',
-      'viewer',
-    ];
+	addMessage(text) {
+		console.log(text)
+	}
 
-    if(except.length === 0) {
-      this.dimPanels(panels, dimness);
-    } else {
-      const dimPanels = panels.filter( (panel) => {
-        return (except.indexOf(panel) === -1);
-      });
-  
-      this.dimPanels(dimPanels, dimness);
-    }
-  }
+	dimPanels(panels, dimness) {
+		const { dim } = this.state;
+		let newDim = [];
 
-  render() {
-    // it seems mental doing it like this now, but bear with me
-    const {game, player, dim, selectedCommandComponent} = this.state;
-    const {badge, commands, galaxy, messages, sector, status, systems, viewer} = game;
+		for (let panel of panels) {
+			newDim[panel] = dimness;
+		}
 
-    const commandComponents = [
-      {
-        name: 'Move within galaxy',
-        component:
-          <MoveSector value={{galaxy: galaxy, sector: sector, location: player.location}} action={this.handleMoveSector} />,
-      },
-      {
-        name: 'Move within sector',
-        component:
-          <MoveQuad value={{sector: sector, location: player.location}} action={this.handleMoveQuad} />,
-      },
-    ];
+		this.setState({
+			dim: { ...dim, ...newDim },
+		});
+	}
 
-    return (
-      <div>
-        <Container className="no-gutters container__game">
-          <Row>
-            <Galaxy
-              dim={dim.galaxy}
-              value={{galaxy: galaxy, location: player.location, dest: player.dest}}
-            />
+	dimAll(dimness, except = []) {
+		const panels = [
+			'badge',
+			'commands',
+			'galaxy',
+			'messages',
+			'sector',
+			'status',
+			'systems',
+			'viewer',
+		];
 
-            <Status
-              dim={dim.status}
-              value={status}
-            />
+		if (except.length === 0) {
+			this.dimPanels(panels, dimness);
+		} else {
+			const dimPanels = panels.filter((panel) => {
+				return (except.indexOf(panel) === -1);
+			});
 
-            <Sector
-              dim={dim.sector}
-              value={{sector: sector, location: player.location, dest: player.dest}}
-            />
-          </Row>
-          
-          <Row>
-            <Messages
-              dim={dim.messages}
-              value={messages}
-            />
+			this.dimPanels(dimPanels, dimness);
+		}
+	}
 
-            <Col className="unit unit--tall" xs="12" md="12" lg="6">
-              <Row>
-                <Viewer
-                  travelling={player.travellling}
-                  dim={dim.viewer}
-                  value={viewer}
-                />
-            
-                <Commands
-                  dim={dim.commands}
-                  commands={commandComponents}
-                  handleCommandPanelClick={this.handleCommandPanelClick} 
-                  value={commands}
-                />
-              </Row>
+	render() {
+		// it seems mental doing it like this now, but bear with me
+		const { game, player, dim, selectedCommandComponent } = this.state;
+		const { badge, commands, galaxy, messages, sector, status, systems, viewer } = game;
 
-              <Row>
-                <Systems
-                  dim={dim.systems}
-                  value={systems}
-                />
-            
-                <Badge
-                  dim={dim.badge}
-                  value={badge}
-                />
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+		const commandComponents = [
+			{
+				name: 'Move within galaxy',
+				component:
+					<MoveSector value={{ galaxy: galaxy, sector: sector, location: player.location }} action={this.handleMoveSector} />,
+			},
+			{
+				name: 'Move within sector',
+				component:
+					<MoveQuad value={{ sector: sector, location: player.location }} action={this.handleMoveQuad} />,
+			},
+		];
 
-        <CommandPanel
-          commands={commandComponents}
-          selectCommand={this.selectCommand}
-          selectedCommandComponent={selectedCommandComponent}
-          show={this.state.commandPanelShow}
-          close={this.handleCommandPanelClose}
-        />
-      </div>
-    );
-  }
+		return (
+			<div>
+				<Container className="no-gutters container__game">
+					<Row>
+						<Galaxy
+							dim={dim.galaxy}
+							value={{ galaxy: galaxy, location: player.location, dest: player.dest }}
+						/>
+
+						<Status
+							dim={dim.status}
+							value={status}
+						/>
+
+						<Sector
+							dim={dim.sector}
+							value={{ sector: sector, location: player.location, dest: player.dest }}
+						/>
+					</Row>
+
+					<Row>
+						<Messages
+							dim={dim.messages}
+							value={messages}
+						/>
+
+						<Col className="unit unit--tall" xs="12" md="12" lg="6">
+							<Row>
+								<Viewer
+									travelling={player.travellling}
+									dim={dim.viewer}
+									value={viewer}
+								/>
+
+								<Commands
+									dim={dim.commands}
+									commands={commandComponents}
+									handleCommandPanelClick={this.handleCommandPanelClick}
+									value={commands}
+								/>
+							</Row>
+
+							<Row>
+								<Systems
+									dim={dim.systems}
+									value={systems}
+								/>
+
+								<Badge
+									dim={dim.badge}
+									value={badge}
+								/>
+							</Row>
+						</Col>
+					</Row>
+				</Container>
+
+				<CommandPanel
+					commands={commandComponents}
+					selectCommand={this.selectCommand}
+					selectedCommandComponent={selectedCommandComponent}
+					show={this.state.commandPanelShow}
+					close={this.handleCommandPanelClose}
+				/>
+			</div>
+		);
+	}
 }
 
 export default App;
