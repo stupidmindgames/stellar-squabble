@@ -41,7 +41,7 @@ let Game = {
 		stardate: 3500.0,
 		status: 'alert',
 		statusColour: 'red',
-		statusText: '&raquo;&raquo; Alert &laquo;&laquo;',
+		statusText: '» Alert «',
 		energy: 100,
 		shields: 100,
 		torps: 9,

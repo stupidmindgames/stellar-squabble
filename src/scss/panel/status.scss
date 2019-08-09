@@ -9,15 +9,15 @@
 
         span {
             font-weight: bold;
-        }
+		}
+		
+		&.block__statusPanel--alert {
+			text-align: center;
+		}
 
         &.block__statusPanel--red {
             background-color: $bg-alert;
             color: $fg-alert;
-        }
-
-        &.block__statusPanel--alert {
-            text-align: center;
         }
 
         &.block__statusPanel--warp,
